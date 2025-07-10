@@ -12,6 +12,37 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+/* Spacing below fixed navbar */
+#home {
+  padding-top: 90px;
+}
+
+@media (max-width: 768px) {
+  #home {
+    padding-top: 110px;
+  }
+
+  .dropdown-menu {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-collapse {
+    background: white;
+    padding-bottom: 1rem;
+    border-radius: 0 0 12px 12px;
+  }
+}
+
 
 .App-header {
   background-color: #282c34;
