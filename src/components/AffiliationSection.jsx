@@ -5,6 +5,12 @@ import "../main.css";
 
 const partners = [
   {
+    name: "Jain Online",
+    logo: "/affiliations/jain.png",
+    info: "Flexible online degree partner.",
+    desc: "Jain Online is a leading platform for UGC-approved online degrees. V Tech collaborates to offer flexible, affordable learning paths with real-world project exposure and industry mentoring."
+  },
+  {
     name: "NSDC",
     logo: "/affiliations/nsdc.png",
     info: "Skill development ecosystem partner.",
@@ -33,12 +39,6 @@ const partners = [
     logo: "/affiliations/skyllx.png",
     info: "Technology training innovator.",
     desc: "Skyllx specializes in immersive tech training programs. Through this partnership, V Tech provides advanced bootcamps in full-stack development, data science, and cloud. Learners gain industry-relevant certifications."
-  },
-  {
-    name: "Jain Online",
-    logo: "/affiliations/jain.png",
-    info: "Flexible online degree partner.",
-    desc: "Jain Online is a leading platform for UGC-approved online degrees. V Tech collaborates to offer flexible, affordable learning paths with real-world project exposure and industry mentoring."
   },
   {
     name: "Drexel University",

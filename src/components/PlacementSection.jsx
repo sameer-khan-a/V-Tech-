@@ -72,7 +72,7 @@ const PlacementSection = () => {
         <center>
           <div className="mt-4">
             <a
-              href="#"
+              href="/HiringDetails"
               className="btn px-5 py-2 fs-5 fw-semibold rounded-pill"
               style={{
                 backgroundColor: "#8c5278",

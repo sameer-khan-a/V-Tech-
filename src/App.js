@@ -20,6 +20,16 @@ import AndhraOnline from './components/Affiliations/AndhraOnline';
 import JainWLPOnline from './components/Affiliations/JainWLP';
 import VignanOnline from './components/Affiliations/VignanOnline';
 import UttaranchalOnline from './components/Affiliations/UttaranchalOnline';
+import TechCourses from './components/courses/TechCourses';
+import NonTechCourses from './components/courses/NonTechCourses';
+import CoursesOffered from './components/courses/CoursesOffered';
+import BookAppointment from './components/BookAppointment';
+import SuccessDetails from './components/SuccessDetails';
+import HiringDetails from './components/HiringDetails';
+import VTechGallery from './components/VTechGallery';
+import VTechActivities from './components/VTechActivities';
+import Support from './components/Support';
+
 function App() {
   return (
     <>
@@ -41,6 +51,15 @@ function App() {
         <Route path='/JainWLP' element={<JainWLPOnline />} />
         <Route path='/VignanUniversity' element={<VignanOnline />} />
         <Route path='/UttaranchalUniversity' element={<UttaranchalOnline />} />
+        <Route path='/TechCourses' element={<TechCourses />} />
+        <Route path='/NonTechCourses' element={<NonTechCourses />} />
+        <Route path='/CoursesOffered' element={<CoursesOffered />} />
+        <Route path='/BookAppointment' element={<BookAppointment />} />
+        <Route path='/SuccessDetails' element={<SuccessDetails />} />
+        <Route path='/HiringDetails' element={<HiringDetails />} />
+        <Route path='/VTechGallery' element={<VTechGallery />} />
+        <Route path='/VTechActivities' element={<VTechActivities />} />
+        <Route path='/Support' element={<Support />} />
 
    
       

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
+// Components
 import Leadership from './components/Leadership';
 import SuccessStories from './components/SuccessStories';
 import AffiliationsSection from './components/AffiliationSection';
@@ -13,6 +12,7 @@ import MissionVision from './components/MissionVision';
 import PlacementSection from './components/PlacementSection';
 import ContactSection from './components/ContactSection';
 
+// Typing messages
 const typedMessages = [
   'Authorised <span style="color:rgb(232, 139, 199)">Tally</span> Centre',
   'Student <span style="color:rgb(232, 139, 199)">Job Portal</span> Access',
@@ -38,14 +38,7 @@ const Home = () => {
   const [displayed, setDisplayed] = useState('');
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [showMarquee, setShowMarquee] = useState(true);
- useEffect(() => {
-  AOS.init({
-    duration: 2500,
-    once: false,
-    offset: 120,
-  });
-  AOS.refresh(); // <-- Force refresh after DOM updates
-}, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % typedMessages.length);
@@ -137,32 +130,32 @@ const Home = () => {
         </div>
       </div>
 
-<section id="MissionVision" className="scroll-section" data-aos="fade">
-  <MissionVision />
-</section>
+      {/* Page Sections without AOS */}
+      <section id="MissionVision" className="scroll-section">
+        <MissionVision />
+      </section>
 
-<section id="leadership" className="py-sm-5 mt-sm-5 scroll-section" data-aos="fade">
-  <Leadership />
-</section>
+      <section id="leadership" className="py-sm-5 mt-sm-5 scroll-section">
+        <Leadership />
+      </section>
 
-<section id="affiliations" className="py-sm-4 mt-sm-4 scroll-section" data-aos="fade">
-  <AffiliationsSection />
-</section>
+      <section id="affiliations" className="py-sm-4 mt-sm-4 scroll-section">
+        <AffiliationsSection />
+      </section>
 
-<section id="placements" className="scroll-section" data-aos="fade">
-  <PlacementSection />
-</section>
+      <section id="placements" className="scroll-section">
+        <PlacementSection />
+      </section>
 
-<section id="success" className="py-sm-5 mt-sm-5 scroll-section" data-aos="fade">
-  <SuccessStories />
-</section>
+      <section id="success" className="py-sm-5 mt-sm-5 scroll-section">
+        <SuccessStories />
+      </section>
 
-<section id="contact-section" className="scroll-section" data-aos="fade">
-  <ContactSection />
-</section>
+      <section id="contact-section" className="scroll-section">
+        <ContactSection />
+      </section>
 
-
-      {/* Marquee & Close Button */}
+      {/* Marquee */}
       {showMarquee && (
         <>
           <div

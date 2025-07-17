@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg fixed-top shadow-sm py-2" id="custom-navbar">
       <div className="container-fluid px-3 px-lg-5">
         {/* Brand */}
-        <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#" style={{color: '#8c5278'}}>
+        <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#" style={{color: '#d393bd '}}>
           <img
             src="/logo.png"
             alt="V TECH Logo"
@@ -29,9 +29,9 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           style={{
-            background: 'linear-gradient(to left, gold, gold)',
-            color: 'black',
-            border: '2px solid black',
+            background: '#rgba(230, 199, 219, 1) !important',
+            color: 'white',
+            border: '2px solid white',
           }}
         >
           <span className="navbar-toggler-icon"></span>
@@ -54,14 +54,14 @@ const Navbar = () => {
   >
     Home
   </a>
-  <ul className="dropdown-menu" aria-labelledby="homeDropdown">
-    <li><a className="dropdown-item" href="#home">Home</a></li>
-    <li><a className="dropdown-item" href="#MissionVision">About Us</a></li>
-    <li><a className="dropdown-item" href="#leadership">Our Team</a></li>
-    <li><a className="dropdown-item" href="#affiliations">Our Partners</a></li>
-    <li><a className="dropdown-item" href="#placements">Hiring Support</a></li>
-    <li><a className="dropdown-item" href="#success">Testimonials</a></li>
-    <li><a className="dropdown-item" href="#contact">Contact Us</a></li> {/* 👈 New link */}
+  <ul className="dropdown-menu" aria-labelledby="homeDropdown" style={{color: 'white'}}>
+    <li><a className="dropdown-item" href="#home" style={{color: 'white'}}>Home</a></li>
+    <li><a className="dropdown-item" href="#MissionVision" style={{color: 'white'}}>About Us</a></li>
+    <li><a className="dropdown-item" href="#leadership" style={{color: 'white'}} >Our Team</a></li>
+    <li><a className="dropdown-item" href="#affiliations" style={{color: 'white'}}>Our Partners</a></li>
+    <li><a className="dropdown-item" href="#placements" style={{color: 'white'}}>Hiring Support</a></li>
+    <li><a className="dropdown-item" href="#success" style={{color: 'white'}}>Testimonials</a></li>
+    <li><a className="dropdown-item" href="#contact" style={{color: 'white'}}>Contact Us</a></li> {/* 👈 New link */}
   </ul>
 </li>
 
@@ -72,22 +72,11 @@ const Navbar = () => {
             </li>
 
             {/* Courses Dropdown */}
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="coursesDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Courses
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="coursesDropdown">
-                <li><a className="dropdown-item" href="#tech">Tech Courses</a></li>
-                <li><a className="dropdown-item" href="#nontech">Non-Tech Courses</a></li>
-              </ul>
+       {/* Courses Link */}
+ <li className="nav-item">
+              <a className="nav-link" href="/CoursesOffered">Courses</a>
             </li>
+
 
             {/* CA/CS Link */}
             <li className="nav-item">
@@ -106,8 +95,8 @@ const Navbar = () => {
     Events
   </a>
   <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
-    <li><a className="dropdown-item" href="#activities">Activities</a></li>
-    <li><a className="dropdown-item" href="#gallery">Gallery</a></li>
+    <li><a className="dropdown-item" href="/VTechActivities">Activities</a></li>
+    <li><a className="dropdown-item" href="/VTechGallery">Gallery</a></li>
   </ul>
 </li>
 
@@ -124,9 +113,9 @@ const Navbar = () => {
                 Placements
               </a>
               <ul className="dropdown-menu" aria-labelledby="placementDropdown">
-                <li><a className="dropdown-item" href="#hiring">Hiring Partners</a></li>
-                <li><a className="dropdown-item" href="#stories">Success Stories</a></li>
-                <li><a className="dropdown-item" href="#support">Our Support</a></li>
+                <li><a className="dropdown-item" href="/HiringDetails">Hiring Partners</a></li>
+                <li><a className="dropdown-item" href="/SuccessDetails">Success Stories</a></li>
+                <li><a className="dropdown-item" href="/Support">Our Support</a></li>
               </ul>
             </li>
 

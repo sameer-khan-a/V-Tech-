@@ -1,59 +1,53 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../main.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const SuccessStories = () => {
   const sliderRef = useRef(null);
   const [slideSpeed, setSlideSpeed] = useState(2000);
 
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
   const testimonials = [
     {
       name: 'Aripitha Omkar',
       salary: '6.08 LPA',
-      img: '/arpitha.jpeg',
+      img: '/arpitha.png',
       company: 'Power School',
-      msg: 'The training experience was incredibly enriching. The support, mentorship, and hands-on projects prepared me well..',
+      msg: 'The training experience was incredibly enriching. The support, mentorship, and hands-on projects prepared me well.',
     },
     {
       name: 'Bindu D.B',
       salary: '3.92 LPA',
-      img: '/bindu d b.jpeg',
+      img: '/bindu.png',
       company: 'Taxedge Boutique',
       msg: 'The learning journey was smooth and rewarding — it gave me the confidence and skills to succeed in my new role!',
     },
     {
       name: 'Deepika T N',
       salary: '3.44 LPA',
-      img: '/deepika t n.jpeg',
+      img: '/deepika t n.png',
       company: 'Accenture',
       msg: 'The guidance and support throughout the placement process were outstanding. I always felt well-prepared and confident.',
     },
     {
       name: 'Kushwanth',
       salary: '3 LPA',
-      img: '/kushwanth.jpeg',
+      img: '/kushwanth.png',
       company: 'Wipro',
       msg: 'V Tech gave me the practical edge I was missing. Real projects and real mentors made all the difference.',
     },
     {
       name: 'Bhavya M S',
       salary: '3 LPA',
-      img: '/bhavya.jpeg',
+      img: '/bhavya.png',
       company: 'Primus',
       msg: 'From classroom to career — V Tech’s ecosystem helped me transform quickly and land a job I love.',
     },
     {
       name: 'Badrinatha Y P',
       salary: '2.7 LPA',
-      img: '/badrinath.jpeg',
+      img: '/arpitha2.png',
       company: 'FNH Technologies',
       msg: 'Every session, every project — it all added up. I felt industry-ready the moment I graduated.',
     },
@@ -62,7 +56,9 @@ const SuccessStories = () => {
   const handleArrowClick = (direction) => {
     setSlideSpeed(300);
     setTimeout(() => setSlideSpeed(2000), 400);
-    direction === 'next' ? sliderRef.current.slickNext() : sliderRef.current.slickPrev();
+    direction === 'next'
+      ? sliderRef.current.slickNext()
+      : sliderRef.current.slickPrev();
   };
 
   const settings = {
@@ -71,8 +67,8 @@ const SuccessStories = () => {
     autoplaySpeed: 2200,
     speed: slideSpeed,
     slidesToShow: 3,
-    slidesToScroll: 1,
     centerMode: true,
+    slidesToScroll: 1,
     centerPadding: '0',
     pauseOnHover: true,
     arrows: false,
@@ -83,15 +79,7 @@ const SuccessStories = () => {
   };
 
   return (
-    <div
-      className="success-section text-center py-5"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-      data-aos="fade-up"
-    >
+    <div className="success-section text-center py-5 d-flex flex-column justify-content-center">
       <h2 className="fw-bold mb-2 display-5" style={{ color: '#8c5278' }}>
         Hired & Thriving
       </h2>
@@ -100,29 +88,29 @@ const SuccessStories = () => {
       <div className="position-relative px-4">
         <Slider {...settings} ref={sliderRef}>
           {testimonials.map((t, idx) => (
-            <div key={idx} className="px-3 py-5 slide-item d-flex flex-column align-items-center">
-              <div className="testimonial-card p-4 shadow" style={{ borderRadius: '20%' }}>
-                <div className="testimonial-img-wrapper mx-auto mb-3">
-                  <img src={t.img} alt={t.name} className="testimonial-img" />
+            <div key={idx} className="px-3 py-4 d-flex flex-column align-items-center">
+              <div className="zoom-wrapper d-flex justify-content-center align-items-center">
+                <div className="testimonial-card p-4 shadow rounded-5  hover-scale">
+                  <div className="testimonial-img-wrapper mx-auto mb-3">
+                    <img src={t.img} alt={t.name} className="testimonial-img " />
+                  </div>
+                  <h5 className="fw-semibold" style={{ color: 'rgb(99, 60, 85)' }}>{t.name}</h5>
+                  <p className="text-muted mb-1 fw-bold">{t.salary}</p>
+                  <p className="text-muted mb-2 fw-bold">{t.company}</p>
+                  <p className="small text-black fs-6">{t.msg}</p>
                 </div>
-                <h5 className="fw-semibold" style={{ color: 'rgb(99, 60, 85)' }}>{t.name}</h5>
-                <p className="text-muted mb-1 fw-bold">{t.salary}</p>
-                <p className="text-muted mb-2 fw-bold">{t.company}</p>
-                <p className="small text-black fs-5">{t.msg}</p>
               </div>
             </div>
           ))}
         </Slider>
 
-        {/* Custom Arrows */}
         <div className="custom-arrow prev-arrow" onClick={() => handleArrowClick('prev')}>❮</div>
         <div className="custom-arrow next-arrow" onClick={() => handleArrowClick('next')}>❯</div>
       </div>
 
-      {/* Learn More Button */}
       <div className="mt-4">
         <a
-          href="#"
+          href="/SuccessDetails"
           className="btn px-5 py-2 fs-5 fw-semibold rounded-pill"
           style={{
             backgroundColor: "#8c5278",
