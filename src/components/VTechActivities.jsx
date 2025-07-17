@@ -67,7 +67,7 @@ const VTechActivities = () => {
         <div className="container" data-aos="zoom-in">
           <h2 style={{color: '#f194cf'}}>Be Part of the Action Next Time!</h2>
           <p>From tech talks to talent nights—our events shape leaders and leave memories. Join us now!</p>
-          <a href="/register">Join the Legacy</a>
+          <a href="/BookAppointment">Join the Legacy</a>
         </div>
       </section>
 

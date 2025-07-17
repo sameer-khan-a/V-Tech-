@@ -204,7 +204,7 @@ const AffiliationsSection = () => {
       {/* Learn More CTA */}
       <div className=" z-3 text-center">
         <a
-          href="#contact-section"
+          href="/Support"
           className="btn px-5 fs-5 fw-semibold rounded-pill"
           style={{
             backgroundColor: "#8c5278",

@@ -30,7 +30,7 @@ const Leadership = () => {
             src="/PradeepKumar.jpg"
             alt="N. B. Pradeep Kumar"
             className="rounded-circle shadow"
-            style={{ width: '75%', maxWidth: '300px', height: 'auto' }}
+            style={{ width: '75%', maxWidth: '300px', height: 'auto', border: '0.4rem solid #000000ff' }}
           />
           <h5 className="mt-3 mb-1 fs-4 fw-semibold" style={{ color: '#8c5278' }}>
             N. B. Pradeep Kumar
@@ -41,7 +41,7 @@ const Leadership = () => {
         {/* Nagapriya K J */}
         <div className="col-sm-6 col-12 d-flex flex-column align-items-center mb-4">
           <img
-            src="/Nagapriya.jpg"
+            src="/Nagapriya.png"
             alt="Nagapriya K J"
             className="rounded-circle shadow"
             style={{ width: '75%', maxWidth: '300px', height: 'auto' }}

@@ -1,6 +1,11 @@
-import React from 'react';
+
+
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../main.css';
 import Navbar2 from './Navbar2';
+
 
 const hiringPartners = [
   {
@@ -65,100 +70,100 @@ const hiringPartners = [
   }
 ];
 
-
 const HiringDetails = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   return (
     <>
       <Navbar2 />
 
       {/* Hero Section */}
-      <section className="hero-section text-white text-center d-flex align-items-center">
+      <section className="hero-section text-white text-center d-flex align-items-center" data-aos="fade-down">
         <div className="container py-5">
           <h1 className="display-4 fw-bold">We Partner With the Best</h1>
           <p className="lead mt-3 mb-4">
             From global tech giants to India’s top banks, our hiring partners trust the quality of our training and consistently recruit our graduates.
           </p>
-          <button className="btn btn-light px-4 py-2 fw-semibold rounded-pill" disabled>
-            Meet Our Partners
-          </button>
+        <button
+  className="btn btn-light px-4 py-2 fw-semibold rounded-pill"
+  onClick={() => {
+    const section = document.getElementById('hiring-partners');
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+  }}
+>
+  Meet Our Partners
+</button>
+
         </div>
       </section>
 
       {/* Real Hiring Flow */}
-    <section className="py-5" style={{ background: 'rgba(140, 82, 120, 0.36)' }}>
-  <div className="container">
-    <h2 className="text-center fw-bold mb-5" style={{ color: '#8c5278' }}>
-      How the Hiring Happens
-    </h2>
-    <div className="row g-4 text-center">
-      <div className="col-md-3">
-        <div className="p-4 bg-white h-100 shadow-sm rounded">
-          <h5 className="fw-semibold">1. Industry-Aligned Training</h5>
-          <p className="text-muted">Hands-on courses in development, testing, data analysis & communication.</p>
+      <section className="py-5" style={{ background: 'rgba(140, 82, 120, 0.36)' }}>
+        <div className="container">
+          <h2 className="text-center fw-bold mb-5" style={{ color: '#8c5278' }} data-aos="fade-up">
+            How the Hiring Happens
+          </h2>
+          <div className="row g-4 text-center">
+            {[
+              'Industry-Aligned Training',
+              'Mock Interviews & Projects',
+              'Direct Company Drives',
+              'Offers & Onboarding',
+            ].map((title, index) => (
+              <div className="col-md-3" key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+                <div className="p-4 bg-white h-100 shadow-sm rounded">
+                  <h5 className="fw-semibold">{title}</h5>
+                  <p className="text-muted">
+                    {[
+                      'Hands-on courses in development, testing, data analysis & communication.',
+                      'Simulated technical and HR interviews + project showcases to prepare students.',
+                      'Companies conduct assessments and interviews on-campus or virtually.',
+                      'Selected candidates receive LOIs and job offer letters, with onboarding support.',
+                    ][index]}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="col-md-3">
-        <div className="p-4 bg-white h-100 shadow-sm rounded">
-          <h5 className="fw-semibold">2. Mock Interviews & Projects</h5>
-          <p className="text-muted">Simulated technical and HR interviews + project showcases to prepare students.</p>
-        </div>
-      </div>
-      <div className="col-md-3">
-        <div className="p-4 bg-white h-100 shadow-sm rounded">
-          <h5 className="fw-semibold">3. Direct Company Drives</h5>
-          <p className="text-muted">Companies conduct assessments and interviews on-campus or virtually.</p>
-        </div>
-      </div>
-      <div className="col-md-3">
-        <div className="p-4 bg-white h-100 shadow-sm rounded">
-          <h5 className="fw-semibold">4. Offers & Onboarding</h5>
-          <p className="text-muted">Selected candidates receive LOIs and job offer letters, with onboarding support.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Why Us */}
-      <section className="why-partners-section py-5" style={{background: 'rgba(140, 82, 120, 0.36)'}}>
+      <section className="why-partners-section py-5" style={{ background: 'rgba(140, 82, 120, 0.36)' }}>
         <div className="container text-center">
-          <h2 className="fw-bold mb-4" style={{ color: '#8c5278' }}>Why Our Hiring Network Works</h2>
+          <h2 className="fw-bold mb-4" style={{ color: '#8c5278' }} data-aos="fade-up">Why Our Hiring Network Works</h2>
           <div className="row justify-content-center">
-            <div className="col-md-4 mb-4">
-              <div className="p-4 shadow-sm bg-white h-100 rounded">
-                <h5 className="fw-semibold">Curriculum Built for Jobs</h5>
-                <p className="text-muted">We teach what companies need — not just theory, but tools and teamwork.</p>
+            {[
+              ['Curriculum Built for Jobs', 'We teach what companies need — not just theory, but tools and teamwork.'],
+              ['Real Outcomes, Not Just Promises', 'Our alumni work at global firms, thanks to intensive training and mentorship.'],
+              ['Placement-Ready Confidence', 'By the time drives start, students are already placement-ready in mindset and skills.'],
+            ].map(([title, desc], index) => (
+              <div className="col-md-4 mb-4" key={index} data-aos="fade-up" data-aos-delay={index * 150}>
+                <div className="p-4 shadow-sm bg-white h-100 rounded">
+                  <h5 className="fw-semibold">{title}</h5>
+                  <p className="text-muted">{desc}</p>
+                </div>
               </div>
-            </div>
-            <div className="col-md-4 mb-4">
-              <div className="p-4 shadow-sm bg-white h-100 rounded">
-                <h5 className="fw-semibold">Real Outcomes, Not Just Promises</h5>
-                <p className="text-muted">Our alumni work at global firms, thanks to intensive training and mentorship.</p>
-              </div>
-            </div>
-            <div className="col-md-4 mb-4">
-              <div className="p-4 shadow-sm bg-white h-100 rounded">
-                <h5 className="fw-semibold">Placement-Ready Confidence</h5>
-                <p className="text-muted">By the time drives start, students are already placement-ready in mindset and skills.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Partner Cards */}
-      <div className="container py-5">
-        <h2 className="text-center display-5 fw-bold mb-4" style={{ color: '#8c5278' }}>
+      <div className="container py-5" id="hiring-partners" style={{ scrollMarginTop: '70px' }}>
+
+        <h2 className="text-center display-5 fw-bold mb-4" style={{ color: '#8c5278' }} data-aos="fade-up">
           Hiring Partners & Roles Offered
         </h2>
-        <p className="text-center mb-5 fs-5">
+        <p className="text-center mb-5 fs-5" data-aos="fade-up" data-aos-delay="100">
           These companies don’t just visit — they recruit consistently, offering roles that span software, support, testing, analytics, and more.
         </p>
 
         <div className="row gy-5">
           {hiringPartners.map((partner, index) => (
-            <div key={index} className="col-md-6 col-lg-4 d-flex">
+            <div key={index} className="col-md-6 col-lg-4 d-flex" data-aos="zoom-in" data-aos-delay={index * 100}>
               <div className="partner-card flex-fill p-4 text-center">
                 <img
                   src={partner.logo}
