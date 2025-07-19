@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "BP1.C": "cpp"
+        "BP1.C": "cpp",
+        "BP3.C": "cpp",
+        "BP4.C": "cpp"
     }
 }

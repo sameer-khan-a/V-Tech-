@@ -6,7 +6,7 @@ import Navbar2 from './Navbar2';
 
 const VtechCACS = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 1000 , once: true});
   }, []);
 
   return (
@@ -107,29 +107,56 @@ const VtechCACS = () => {
 
 
 
-      {/* INFO PAGE 2 */}
-      <section id="info-2" className="cacs-info-alt sections">
-        <h2 data-aos="fade-down">👩‍🏫 Faculty • 🥇 Rankers • 📍 Contact</h2>
-        <div className="info-grid-alt">
-          <div className="info-item" data-aos="fade-right">
-            <h4>👩‍🏫 Core Faculty</h4>
-            <p>Our faculty includes Chartered Accountants, Company Secretaries, and experts with over 10+ years of industry & teaching experience.</p>
-          </div>
-          <div className="info-item" data-aos="fade-left">
-            <h4>🥇 Rank Holders</h4>
-            <p>Our alumni include AIR holders across CA Foundation, CS Executive, and Intermediate. We share their success stories to inspire the next gen.</p>
-          </div>
-          <div className="info-item" data-aos="fade-up">
-            <h4>📍 Location & Contact</h4>
-            <p>
-              V TECH Campus<br />
-              Basaveshwara Road, Opp. IB Circle<br />
-              Tumkur - 572101<br />
-              📱 +91 7892842119
-            </p>
-          </div>
-        </div>
-      </section>
+    {/* INFO PAGE 2 */}
+{/* INFO PAGE 2 */}
+<section id="info-2" className="faculty-rankers-section sections py-12 px-6 md:px-16">
+  <div className="container position-relative z-2 text-center" data-aos="fade-down">
+    <h2 className="display-5 fw-bold mb-3" style={{ color: '#8c5278' }}>
+      👩‍🏫 Faculty & 🥇 Rankers
+    </h2>
+    <p className="lead mb-4 text-dark">
+      Learn from top professionals and be inspired by our AIR achievers — your journey begins with guidance that counts.
+    </p>
+  </div>
+
+  {/* Core Faculty */}
+  <div className="card-3d-wrapper mb-16" data-aos="fade-right">
+    <div className="card flex flex-col md:flex-row items-center gap-8">
+      <img
+        src="/cacs/staff.png"
+        alt="Core Faculty"
+        className="w-full md:w-1/2 rounded-xl shadow-lg"
+      />
+      <div className="md:w-1/2">
+        <h4 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">👩‍🏫 Core Faculty</h4>
+        <p className="text-gray-700 text-lg leading-relaxed text-center md:text-left">
+          Our faculty includes Chartered Accountants, Company Secretaries, and experts with over
+          10+ years of industry & teaching experience.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Rank Holders */}
+  <div className="card-3d-wrapper" data-aos="fade-left">
+    <div className="card flex flex-col-reverse md:flex-row items-center gap-8">
+      <div className="md:w-1/2">
+        <h4 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">🥇 Rank Holders</h4>
+        <p className="text-gray-700 text-lg leading-relaxed text-center md:text-left">
+          Our alumni include AIR holders across CA Foundation, CS Executive, and Intermediate.
+          We share their success stories to inspire the next gen.
+        </p>
+      </div>
+      <img
+        src="/cacs/rank.png"
+        alt="Rank Holders"
+        className="w-full md:w-1/2 rounded-xl shadow-lg"
+      />
+    </div>
+  </div>
+</section>
+
+
 
       {/* ACHIEVERS PAGE 1 */}
       <section id="achievers-1" className="cacs-achievers sections">
