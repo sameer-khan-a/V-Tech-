@@ -70,7 +70,7 @@ const Navbar2 = () => {
 
             {/* CA/CS Link */}
             <li className="nav-item">
-              <a className="nav-link" href="#cacs">CA/CS Coaching</a>
+              <a className="nav-link" href="/VTechCACS">CA/CS Coaching</a>
             </li>
 {/* Events Dropdown */}
 <li className="nav-item dropdown">

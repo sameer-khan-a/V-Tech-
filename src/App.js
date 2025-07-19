@@ -29,6 +29,7 @@ import HiringDetails from './components/HiringDetails';
 import VTechGallery from './components/VTechGallery';
 import VTechActivities from './components/VTechActivities';
 import Support from './components/Support';
+import VtechCACS from './components/VtechCACS';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path='/VTechGallery' element={<VTechGallery />} />
         <Route path='/VTechActivities' element={<VTechActivities />} />
         <Route path='/Support' element={<Support />} />
+        <Route path='/VtechCACS' element={<VtechCACS />} />
 
    
       

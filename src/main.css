@@ -673,6 +673,304 @@ h2, h3 {
   background: #703f61;
 }
 
+/* === CACS HERO SECTION === */
+.cacs-hero {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.cacs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 5, 5, 0.3); /* slightly lighter so the blur stands out */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* for Safari support */
+  z-index: 1;
+}
+.card.hover-glow {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card.hover-glow:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid #dee2e6;
+}
+
+
+.cacs-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.cacs-hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 3px black;
+}
+
+.cacs-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cacs-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-achieve,
+.btn-info {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-achieve {
+  background-color: #8c5278;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: #ffffff;
+  color: #8c5278;
+  border: 2px solid #8c5278;
+}
+
+.btn-achieve:hover,
+.btn-info:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* === INFO SECTIONS === */
+.cacs-info,
+.cacs-info-alt {
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.cacs-info h2,
+.cacs-info-alt h2 {
+  text-align: center;
+  color: #8c5278;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+}
+
+/* Card Container */
+.program-card {
+  min-height: 600px; /* Fixed height */
+  border-radius: 16px;
+  background: rgba(123, 73, 106, 0.36) !important;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px; /* Needed for 3D effect */
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  will-change: transform;
+}
+
+/* Hover - Smooth 3D card lift */
+.program-card:hover {
+  transform: translateY(-10px) rotateX(4deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Blur Overlay */
+.program-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.7);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.program-card:hover::before {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* Image */
+.program-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  z-index: 2;
+}
+
+/* Card Content Overlay */
+.program-card .card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px 20px;
+  background: rgba(123, 73, 106, 0.36) !important;
+  color: #fff;
+  z-index: 3;
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+.program-card:hover .card-content {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0.5px);
+}
+
+/* Title & Text Readability */
+.program-card .card-title,
+.program-card .card-text {
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Optional subtle zoom on image */
+.program-card:hover img {
+  transform: scale(1.05);
+}
+
+
+/* Custom background overlays */
+
+
+.info-grid-alt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.info-item {
+  background: #f7f2f6;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(140, 82, 120, 0.1);
+  transition: transform 0.3s;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+}
+
+.info-item h4 {
+  color: #8c5278;
+  margin-bottom: 1rem;
+}
+
+.info-item p,
+.info-item ul {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* === ACHIEVERS SECTION === */
+.cacs-achievers,
+.cacs-achievers-alt {
+  padding: 60px 20px;
+  background: #f9f6fa;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cacs-achievers h2,
+.cacs-achievers-alt h2 {
+  color: #8c5278;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.ca-box-detailed,
+.cs-box-detailed {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 1000px;
+  height: 100vh;
+  margin: 0 auto;
+  box-shadow: 0 8px 16px rgba(140, 82, 120, 0.1);
+  transition: transform 0.3s;
+}
+
+.ca-box-detailed:hover,
+.cs-box-detailed:hover {
+  transform: translateY(-5px);
+}
+
+.ca-box-detailed ul,
+.cs-box-detailed ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.ca-box-detailed img,
+.cs-box-detailed img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+
+/* === FULL HEIGHT FIXES === */
+.sections {
+  scroll-margin-top: 70px; /* for navbar offset */
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 768px) {
+  .cacs-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .btn-achieve,
+  .btn-info {
+    width: 100%;
+  }
+
+  .info-grid-alt {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-box-detailed ul,
+  .cs-box-detailed ul,
+  .info-detailed ul {
+    font-size: 1rem;
+  }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .institute-course-card.uniform-card,
