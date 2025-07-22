@@ -1018,7 +1018,7 @@ h2, h3 {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
   width: 80%;
   font-size: 1.15rem;
-  min-height: 400px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1035,32 +1035,36 @@ h2, h3 {
 
 /* List styling */
 .card ul {
+  
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   padding-left: 1.25rem;
   margin: 0;
+  gap: 2rem;
 }
-
 .card ul li {
-  background: rgba(255, 255, 255, 0.651);
+  background: rgba(255, 255, 255, 0.849);
   border-left: 4px solid #8c5278;
   border-radius: 10px;
   padding: 0.8rem 1rem;
   margin-bottom: 0.75rem;
   list-style: none;
-  min-width: 1000px;
+  min-width: 300px;
   text-align: center;
   font-size: 1.05rem;
   line-height: 2.4;
   color: #333;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
 }
 
 .card ul li:hover {
-  background: rgba(255, 255, 255, 0.425);
+  background: rgba(255, 255, 255, 0.658);
+  transform: scale(1.03);
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

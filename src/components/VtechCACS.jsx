@@ -179,31 +179,39 @@ const VtechCACS = () => {
   </div>
 
   {/* 3D Glass Card */}
-    <div className="card flex flex-col md:flex-row items-center justify-center gap-8 border-0">
+  <div
+    className="card flex flex-col md:flex-row items-center justify-center gap-8 border-0 mt-10"
+    data-aos="fade-up"
+  >
+    {/* Optional Left Block (Image / Spacer) */}
+    <div className="hidden md:block md:w-1/2 h-[300px]"></div>
 
-      {/* Optional Left Block (Image / Spacer) */}
-      <div className="hidden md:block md:w-1/2 h-[300px]"></div>
+    {/* Glass Text Block */}
+    <div className="glass-block md:w-1/2 w-full">
+     
+<ul className="list-disc list-inside text-left text-base text-gray-900 space-y-6 leading-relaxed">
+  <li>
+    <div className="text-3xl mb-1 fs-3">🏆</div>
+    <strong className="text-lg block mb-1">Outstanding Results:</strong><br />
+    Consistent top performances in CA Final, Inter, and Foundation. Many of our students have ranked in the top percentile nationally, showcasing our commitment to academic excellence.
+  </li>
+  <li>
+    <div className="text-3xl mb-1 fs-3">🎓</div>
+    <strong className="text-lg block mb-1">Personalized Mentoring:</strong><br />
+    In our esteemed institute, each student receives tailored guidance, weekly progress tracking, and strategic mentoring. Our doubt-clearing sessions and performance reviews ensure no student is left behind.
+  </li>
+  <li>
+    <div className="text-3xl mb-1 fs-3">💼</div>
+    <strong className="text-lg block mb-1">Career Placements:</strong><br />
+    From Big 4s to top MNCs and reputed Indian firms, our achievers have been placed in high-impact roles. The institute actively supports students with resume building, interview prep, and networking.
+  </li>
+</ul>
 
-      {/* Glass Text Block */}
-      <div className="glass-block md:w-1/2 w-full">
-        <h4 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left text-[#6a2c5c]">
-          🥇 Highlights
-        </h4>
-        <ul className="list-disc list-inside text-left text-base text-gray-900 space-y-3">
-          <li>
-            <strong>Final / Inter / Foundation:</strong> Consistent results across every level.
-          </li>
-          <li>
-            <strong>Mentoring:</strong> 1:1 mentoring, group sessions, and timely doubt clearance.
-          </li>
-          <li>
-            <strong>Placements:</strong> Our students have secured roles at Big 4 firms & more.
-          </li>
-        </ul>
-      </div>
+
     </div>
-  
+  </div>
 </section>
+
 
       {/* ACHIEVERS PAGE 2 */}
       <section id="achievers-2" className="cacs-achievers-alt sections">
