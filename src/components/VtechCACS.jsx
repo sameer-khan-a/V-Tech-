@@ -155,21 +155,55 @@ const VtechCACS = () => {
     </div>
   </div>
 </section>
+<section
+  id="achievers-1"
+  className="ca-achievers-section relative py-12 px-6 md:px-16 overflow-hidden"
+>
+  {/* Background Image Layer */}
+  <div
+    className="absolute inset-0 bg-cover bg-center -z-10"
+    style={{
+      backgroundImage: "url('/cacs/cacs2.jpg')",
+      filter: "brightness(0.5)",
+    }}
+  />
 
+  {/* Header */}
+  <div className="container z-10 text-center" data-aos="fade-down">
+    <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#8c5278]">
+      🎯 CA Achievers
+    </h2>
+    <p className="text-base md:text-lg text-gray-100 max-w-2xl mx-auto leading-relaxed">
+      Our students have consistently excelled across all levels of CA — driven by focused mentoring, strategy, and dedication.
+    </p>
+  </div>
 
+  {/* 3D Glass Card */}
+    <div className="card flex flex-col md:flex-row items-center justify-center gap-8 border-0">
 
-      {/* ACHIEVERS PAGE 1 */}
-      <section id="achievers-1" className="cacs-achievers sections">
-        <h2 data-aos="fade-down">🎯 CA Achievers</h2>
-        <div className="ca-box-detailed" data-aos="fade-up">
-          <ul>
-            <li><strong>Final / Inter / Foundation:</strong> Across all levels we’ve delivered consistent results.</li>
-            <li><strong>Mentoring:</strong> Group sessions + 1:1 mentoring + doubt clearance.</li>
-            <li><strong>Placements:</strong> Many students absorbed into Big 4 and top firms.</li>
-          </ul>
-          <img src="/cacs/cacs2.jpg" alt="CA Achievers" />
-        </div>
-      </section>
+      {/* Optional Left Block (Image / Spacer) */}
+      <div className="hidden md:block md:w-1/2 h-[300px]"></div>
+
+      {/* Glass Text Block */}
+      <div className="glass-block md:w-1/2 w-full">
+        <h4 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left text-[#6a2c5c]">
+          🥇 Highlights
+        </h4>
+        <ul className="list-disc list-inside text-left text-base text-gray-900 space-y-3">
+          <li>
+            <strong>Final / Inter / Foundation:</strong> Consistent results across every level.
+          </li>
+          <li>
+            <strong>Mentoring:</strong> 1:1 mentoring, group sessions, and timely doubt clearance.
+          </li>
+          <li>
+            <strong>Placements:</strong> Our students have secured roles at Big 4 firms & more.
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+</section>
 
       {/* ACHIEVERS PAGE 2 */}
       <section id="achievers-2" className="cacs-achievers-alt sections">
