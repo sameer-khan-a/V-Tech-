@@ -1,76 +1,23 @@
-/* 
- ============================================================================
- Name        : turbo_structure.c
- Author      : Your Name
- Version     : 1.0
- Description : A basic Turbo C compatible program demonstrating the 
-               structure of a C program, with documentation and comments.
- ============================================================================
-*/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#include <stdio.h>   // Standard Input/Output functions
-#include <conio.h>   // Turbo C specific: for getch(), clrscr()
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-// ---------------------------
-// Global Variable Declaration
-// ---------------------------
+# testing
+/coverage
 
-/* 
- * Global counter variable
- * Accessible in all functions within this file
- */
-int globalCounter = 0;
+# production
+/build
 
-// ---------------------------
-// Function Prototypes
-// ---------------------------
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-/* 
- * Function: greetUser
- * ----------------------------
- *   Prints a welcome message and increments globalCounter.
- * 
- *   returns: void
- */
-void greetUser(void);
-
-// ---------------------------
-// Main Function
-// ---------------------------
-
-/* 
- * Function: main
- * ----------------------------
- *   Entry point of the Turbo C program.
- *   Demonstrates the structure: local variables, function calls, and output.
- * 
- *   returns: int (0 for success)
- */
-int main(void) {
-    int localVar = 10;   // Local variable declaration
-
-    clrscr();            // Clear the console screen (Turbo C specific)
-
-    greetUser();         // Call user-defined function
-
-    // Output the values of variables
-    printf("Value of local variable: %d\n", localVar);
-    printf("Value of global variable: %d\n", globalCounter);
-
-    getch();             // Wait for user key press before closing
-    return 0;            // Return success status
-}
-
-// ---------------------------
-// Function Definitions
-// ---------------------------
-
-/* 
- * Function: greetUser
- * ----------------------------
- *   Displays a welcome message and increments the global counter.
- */
-void greetUser(void) {
-    printf("Hello! Welcome to the Turbo C program structure demo.\n");
-    globalCounter++;   // Modify global variable
-}
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

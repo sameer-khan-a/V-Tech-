@@ -3,11 +3,15 @@ import Navbar2 from './Navbar2';
 import '../main.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookAppointment = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     service: '',
     date: '',
     time: '',
@@ -21,15 +25,59 @@ const BookAppointment = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Your appointment has been booked successfully!');
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const toastId = toast.loading('Sending your appointment...');
+console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
+console.log("Template ID:", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+console.log("Public Key:", process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+
+emailjs.send(
+  process.env.REACT_APP_EMAILJS_SERVICE_ID,
+  process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+  {
+    name: formData.name,
+    email: formData.email,
+    service: formData.service,
+    phone: formData.phone,
+    date: formData.date,
+    time: formData.time,
+  },
+  process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+)
+    .then(() => {
+      toast.update(toastId, {
+        render: '✅ Appointment booked and email sent!',
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000,
+      });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        date: '',
+        time: '',
+      });
+    })
+    .catch((error) => {
+      toast.update(toastId, {
+        render: '❌ Failed to send appointment email. Try again.',
+        type: 'error',
+        isLoading: false,
+        autoClose: 3000,
+      });
+      console.error(error);
+    });
+};
+
 
   return (
     <>
       <Navbar2 />
-
+<ToastContainer />
       <div className="video-background-container position-relative">
         <video autoPlay loop muted playsInline className="background-video">
           <source src="/Counselling.mp4" type="video/mp4" />
@@ -53,7 +101,7 @@ const BookAppointment = () => {
             <h2
               className="text-center fw-bold mb-4"
               data-aos="fade-down"
-              style={{ color: '#ca77adff' }}
+              style={{ color: 'white' }}
             >
               Book an Appointment
             </h2>
@@ -78,6 +126,17 @@ const BookAppointment = () => {
                   className="form-control"
                   placeholder="Email Address"
                   value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="number"
+                  name="phone"
+                  className="form-control"
+                  placeholder="Contatct Number"
+                  value={formData.phone}
                   onChange={handleChange}
                   required
                 />

@@ -946,6 +946,155 @@ h2, h3 {
   max-width: 1100px;
   margin: 0 auto;
 }
+.ca-achievers-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Container */
+.ca-achievers-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ca-achievers-section .container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8c5278;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.ca-achievers-section .container p {
+  font-size: 1.15rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* 3D hover wrapper */
+.card-3d-wrapper {
+  perspective: 1200px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card-3d-wrapper:hover {
+  transform: translateY(-6px) rotateX(1deg);
+}
+
+/* Card layout */
+.card {
+  background: transparent !important;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.015);
+}
+
+/* Glass block */
+.card .glass-block {
+  background: url('/public/cacs/cablurred.png') center center / cover no-repeat;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  font-size: 1.15rem;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #222;
+}
+
+/* Heading inside glass block */
+.card .glass-block h4 {
+  color: #6a2c5c;
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+/* List styling */
+.card ul {
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.25rem;
+  margin: 0;
+  gap: 2rem;
+}
+.card ul li {
+  background: rgba(255, 255, 255, 0.849);
+  border-left: 4px solid #8c5278;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.75rem;
+  list-style: none;
+  min-width: 300px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 2.4;
+  color: #333;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+}
+
+.card ul li:hover {
+  background: rgba(255, 255, 255, 0.658);
+  transform: scale(1.03);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .card img {
+    max-height: 220px;
+    width: 100%;
+  }
+
+  .card .glass-block {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    min-height: auto;
+    font-size: 1rem;
+  }
+
+  .card .glass-block h4 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card ul {
+    text-align: left;
+  }
+}
+
 
 .info-item {
   background: #f7f2f6;
