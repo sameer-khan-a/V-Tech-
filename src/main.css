@@ -604,6 +604,139 @@ background: #553249;
   transition: transform 0.3s ease;
   height: 100%;
 }
+.glass-block {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Card glow and hover polish */
+#achievers-2 {
+  margin-top: 8rem;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+#achievers-2 h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #facc15;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+.achiever-image-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px; /* or 350px / 400px based on your need */
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: flex-end;
+}
+
+#achievers-2 h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 12px auto 0 auto;
+  border-radius: 9999px;
+}
+
+/* Card wrapper using Bootstrap col-md-6 */
+#achievers-2 .card-custom {
+  position: relative;
+  height: 24rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+  margin-bottom: 2rem;
+}
+
+#achievers-2 .card-custom:hover {
+  transform: scale(1.05);
+}
+
+#achievers-2 .card-custom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  transition: border 0.4s ease;
+  z-index: 1;
+}
+
+#achievers-2 .card-custom:hover::before {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Background image class — alternate left/right */
+#achievers-2 .card-img-left,
+#achievers-2 .card-img-right {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Optional alignment if you want variation */
+#achievers-2 .card-img-left {
+  background-position: left;
+}
+
+#achievers-2 .card-img-right {
+  background-position: right;
+}
+
+/* Content inside card (on top of image) */
+#achievers-2 .card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 1rem;
+}
+
+#achievers-2 .card-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #facc15;
+  margin-bottom: 0.5rem;
+}
+
+#achievers-2 .card-content p {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+/* Responsive title text */
+@media (max-width: 768px) {
+  #achievers-2 h2 {
+    font-size: 2rem;
+  }
+
+  #achievers-2 .card-content p {
+    font-size: 0.85rem;
+  }
+}
+
 
 .institute-course-card:hover {
   transform: scale(1.02);

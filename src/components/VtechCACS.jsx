@@ -212,19 +212,76 @@ const VtechCACS = () => {
   </div>
 </section>
 
+<section
+  id="achievers-2"
+  className="text-white d-flex flex-column justify-content-center align-items-center px-3 py-5"
+  style={{ minHeight: "100vh" }}
+>
+  <h2
+    className="display-4 fw-bold text-warning mb-5 text-center"
+    data-aos="fade-down"
+  >
+    🌟 CS Achievers
+  </h2>
 
-      {/* ACHIEVERS PAGE 2 */}
-      <section id="achievers-2" className="cacs-achievers-alt sections">
-        <h2 data-aos="fade-down">🌟 CS Achievers</h2>
-        <div className="cs-box-detailed" data-aos="fade-up">
-          <ul>
-            <li><strong>Executive | CSEET:</strong> Timely syllabus wrap-up and mock practice.</li>
-            <li><strong>Guidance:</strong> Law interpretation + answer writing skills.</li>
-            <li><strong>Success Rate:</strong> 80%+ clearance across multiple attempts.</li>
-          </ul>
-          <img src="/cacs/cacs3.jpg" alt="CS Achievers" />
+  <div className="container">
+    <div className="row g-4">
+      {[
+        {
+          title: "Executive | CSEET",
+          desc: "Timely syllabus wrap-up and mock practice ensure focused preparation.",
+          img: "/cacs/Rank.png",
+          className: "achiever-img-1",
+        },
+        {
+          title: "Guidance",
+          desc: "Law interpretation + answer writing skill coaching by experts.",
+          img: "/cacs/Rank.png",
+          className: "achiever-img-2",
+        },
+        {
+          title: "Success Rate",
+          desc: "Achieving 80%+ clearance rate across multiple attempts consistently.",
+          img: "/cacs/rank.png",
+          className: "achiever-img-3",
+        },
+        {
+          title: "Personal Mentorship",
+          desc: "Regular check-ins, progress tracking, and motivational sessions with mentors.",
+          img: "/cacs/rank.png",
+          className: "achiever-img-4",
+        },
+      ].map((card, idx) => (
+        <div
+          key={idx}
+          className={`col-md-6 d-flex ${
+            idx % 2 === 0 ? "flex-row" : "flex-row-reverse"
+          }`}
+          data-aos="fade-up"
+        >
+          <div
+            className={`card achiever-image-card ${card.className} w-100 text-white`}
+            style={{
+              backgroundImage: `url('${card.img}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "300px",
+            }}
+          >
+            <div className="card-body d-flex flex-column justify-content-end p-4 bg-dark bg-opacity-50">
+              <h5 className="card-title text-warning">{card.title}</h5>
+              <p className="card-text">{card.desc}</p>
+            </div>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
     </>
   );
 };
