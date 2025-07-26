@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar2 from './Navbar2';
 import '../main.css';
 import AOS from 'aos';
@@ -17,67 +17,85 @@ const BookAppointment = () => {
     time: '',
   });
 
+  const notifAudioRef = useRef(null);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, offset: 100 });
+
+    // Make sure the path & case are correct
+    notifAudioRef.current = new Audio('/sounds/Notification.mp3'); // <- rename file if needed
+    notifAudioRef.current.load();
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const playNotificationSound = async () => {
+    try {
+      if (notifAudioRef.current) {
+        notifAudioRef.current.currentTime = 0;
+        await notifAudioRef.current.play();
+      }
+    } catch (err) {
+      console.warn('Audio play blocked or failed:', err);
+    }
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleChange = (e) => {
+    setFormData((s) => ({ ...s, [e.target.name]: e.target.value }));
+  };
 
-  const toastId = toast.loading('Sending your appointment...');
-console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
-console.log("Template ID:", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-console.log("Public Key:", process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-emailjs.send(
-  process.env.REACT_APP_EMAILJS_SERVICE_ID,
-  process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-  {
-    name: formData.name,
-    email: formData.email,
-    service: formData.service,
-    phone: formData.phone,
-    date: formData.date,
-    time: formData.time,
-  },
-  process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-)
-    .then(() => {
-      toast.update(toastId, {
-        render: '✅ Appointment booked and email sent!',
-        type: 'success',
-        isLoading: false,
-        autoClose: 3000,
-      });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        date: '',
-        time: '',
-      });
-    })
-    .catch((error) => {
-      toast.update(toastId, {
-        render: '❌ Failed to send appointment email. Try again.',
-        type: 'error',
-        isLoading: false,
-        autoClose: 3000,
-      });
-      console.error(error);
-    });
-};
+    const toastId = toast.loading('Sending your appointment...');
 
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          service: formData.service,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(async () => {
+        toast.update(toastId, {
+          render: '✅ Appointment booked and email sent!',
+          type: 'success',
+          isLoading: false,
+          autoClose: 3000,
+        });
+
+        await playNotificationSound(); // play here
+
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          date: '',
+          time: '',
+        });
+      })
+      .catch((error) => {
+        toast.update(toastId, {
+          render: '❌ Failed to send appointment email. Try again.',
+          type: 'error',
+          isLoading: false,
+          autoClose: 3000,
+        });
+        console.error(error);
+      });
+  };
 
   return (
     <>
       <Navbar2 />
-<ToastContainer />
+      <ToastContainer />
+
       <div className="video-background-container position-relative">
         <video autoPlay loop muted playsInline className="background-video">
           <source src="/Counselling.mp4" type="video/mp4" />
@@ -130,12 +148,13 @@ emailjs.send(
                   required
                 />
               </div>
+
               <div className="mb-3">
                 <input
                   type="number"
                   name="phone"
                   className="form-control"
-                  placeholder="Contatct Number"
+                  placeholder="Contact Number"
                   value={formData.phone}
                   onChange={handleChange}
                   required

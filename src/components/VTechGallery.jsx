@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../main.css';
 import Navbar2 from './Navbar2';
-import { useRef } from 'react';
 
 const galleryImages = Array.from({ length: 23 }, (_, i) => ({
   src: `/gallery/gallery${i + 1}.jpg`,
@@ -15,12 +14,24 @@ const campusImages = Array.from({ length: 14 }, (_, i) => ({
   alt: `V TECH Campus View ${i + 1}`,
 }));
 
-
 const VTechGallery = () => {
   const [selected, setSelected] = useState(null);
   const [loading, setLoading] = useState(true);
-const galleryRef = useRef(null);
-const campusRef = useRef(null);
+  const galleryRef = useRef(null);
+  const campusRef = useRef(null);
+
+  // Setup click sound
+  const clickSound = useRef(null);
+  useEffect(() => {
+    clickSound.current = new Audio('/sounds/click.wav'); // Place click.wav in /public/sounds
+    clickSound.current.volume = 0.5;
+  }, []);
+
+  const playClick = () => {
+    if (!clickSound.current) return;
+    clickSound.current.currentTime = 0;
+    clickSound.current.play();
+  };
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -39,32 +50,36 @@ const campusRef = useRef(null);
       <Navbar2 />
 
       {/* HERO BANNER */}
-  <section className="vtech-split-hero text-white">
-  <div className="container">
-    <div className="split-banner-content" data-aos="fade-down">
-      <h1 className="display-4 fw-bold mb-3" style={{color: '#f194cf'}}>V TECH Moments</h1>
-      <p className="lead">Choose your journey through our legacy</p>
-    </div>
+      <section className="vtech-split-hero text-white">
+        <div className="container">
+          <div className="split-banner-content" data-aos="fade-down">
+            <h1 className="display-4 fw-bold mb-3" style={{ color: '#f194cf' }}>V TECH Moments</h1>
+            <p className="lead">Choose your journey through our legacy</p>
+          </div>
 
-    <div className="path-buttons mt-5" data-aos="fade-up" >
-    <button
-  className="path-btn gallery-btn"
-  onClick={() => galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
->
-  📸 The Gallery
-</button>
+          <div className="path-buttons mt-5" data-aos="fade-up">
+            <button
+              className="path-btn gallery-btn"
+              onClick={() => {
+                playClick();
+                galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+            >
+              📸 The Gallery
+            </button>
 
-<button
-  className="path-btn campus-btn"
-  onClick={() => campusRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
->
-  🏫 The Campus
-</button>
-
-    </div>
-  </div>
-</section>
-
+            <button
+              className="path-btn campus-btn"
+              onClick={() => {
+                playClick();
+                campusRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+            >
+              🏫 The Campus
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* GALLERY SECTION */}
       <section className="vtech-gallery-section py-5 px-3" ref={galleryRef}>
@@ -79,6 +94,7 @@ const campusRef = useRef(null);
                 className="vtech-gallery-item"
                 data-aos="fade-up"
                 onClick={() => {
+                  playClick();
                   setSelected(img);
                   setLoading(true);
                 }}
@@ -109,6 +125,7 @@ const campusRef = useRef(null);
                 className="vtech-gallery-item"
                 data-aos="fade-up"
                 onClick={() => {
+                  playClick();
                   setSelected(img);
                   setLoading(true);
                 }}
@@ -147,7 +164,10 @@ const campusRef = useRef(null);
             <button
               className="vtech-close"
               aria-label="Close Gallery Preview"
-              onClick={() => setSelected(null)}
+              onClick={() => {
+                playClick();
+                setSelected(null);
+              }}
             >
               ✕
             </button>

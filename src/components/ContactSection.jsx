@@ -1,14 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContactSection = () => {
   const [showMap, setShowMap] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowMap(true), 300);
     return () => clearTimeout(timer);
   }, []);
+
+  const playSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(() => {});
+    }
+  };
 
   return (
     <section
@@ -16,6 +24,8 @@ const ContactSection = () => {
       id="contact"
       style={{ height: '100dvh', width: '100vw', margin: 0, padding: 0 }}
     >
+      <audio ref={audioRef} src="/sounds/click.wav" preload="auto"></audio>
+
       {/* Background Video */}
       <video
         onLoadedData={(e) => (e.target.style.opacity = '1')}
@@ -48,7 +58,7 @@ const ContactSection = () => {
       {/* Content */}
       <div className="container-fluid h-100 d-flex flex-column justify-content-center align-items-center text-center text-lg-start px-3 px-lg-5">
         <div className="row w-100 align-items-center">
-          
+
           {/* Map */}
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="ratio ratio-4x3">
@@ -93,49 +103,53 @@ const ContactSection = () => {
                   SLR Avenue, 3rd Cross,  opposite to Tumkur University, <br />
                   Ashok Nagar, Tumakuru, Karnataka
                 </p>
-
               </div>
 
               <div className="mb-3">
                 <p className="fw-bold mb-1" style={{ color: 'rgb(245, 146, 210)' }}>Email</p>
-                <p><a href="mailto:vtech.tumkur12@gmail.com" className="text-white text-decoration-none">vtech.tumkur12@gmail.com</a></p>
+                <p><a href="mailto:vtech.tumkur12@gmail.com" className="text-white text-decoration-none" onClick={playSound}>vtech.tumkur12@gmail.com</a></p>
               </div>
 
               <div className="mb-3">
                 <p className="fw-bold mb-1" style={{ color: 'rgb(255, 150, 218)' }}>Phone</p>
                 <p>
-                  <a href="tel:+919742396245" className="text-white text-decoration-none">+91 97423 96245</a><br />
-                  <a href="tel:+917022901241" className="text-white text-decoration-none">+91 70229 01241</a>
+                  <a href="tel:+919742396245" className="text-white text-decoration-none" onClick={playSound}>+91 97423 96245</a><br />
+                  <a href="tel:+917022901241" className="text-white text-decoration-none" onClick={playSound}>+91 70229 01241</a>
                 </p>
               </div>
 
-          <a
-  href="/BookAppointment"
-  className="btn px-4 mt-3 contact-btn"
-  style={{ background: '#8c5278', color: 'white' }}
->
-  Book a Consultation
-</a>
-
+              <a
+                href="/BookAppointment"
+                className="btn px-4 mt-3 contact-btn"
+                style={{ background: '#8c5278', color: 'white' }}
+                onClick={playSound}
+              >
+                Book a Consultation
+              </a>
 
               {/* Social Icons */}
               <div className="d-flex gap-4 justify-content-center justify-content-lg-start mt-4 fs-4">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-decoration-none">
-                  <i className="bi bi-instagram" style={{ color: '#f592d2' }}></i>
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-decoration-none">
-                  <i className="bi bi-facebook" style={{ color: '#f592d2' }}></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-decoration-none">
-                  <i className="bi bi-twitter" style={{ color: '#f592d2' }}></i>
-                </a>
-                <a href="mailto:vtech.tumkur12@gmail.com" aria-label="Email" className="text-decoration-none">
-                  <i className="bi bi-envelope-fill" style={{ color: '#f592d2' }}></i>
-                </a>
+                {[
+                  ["https://www.instagram.com/vtechsolutionstumkur?igsh=NDRrN3ozcjltNXB0", "bi-instagram"],
+                  ["https://www.facebook.com/vtech.tumkur?rdid=6ApnA2C3tdpDsVN7", "bi-facebook"],
+                  ["https://www.linkedin.com/in/vtech-tumkur-06683660", "bi-linkedin"],
+                  ["mailto:Vtechtumkur12@gmail.com", "bi-envelope-fill"],
+                ].map(([link, icon], i) => (
+                  <a
+                    key={i}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={icon}
+                    className="text-decoration-none"
+                    onClick={playSound}
+                  >
+                    <i className={`bi ${icon}`} style={{ color: '#f592d2' }}></i>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

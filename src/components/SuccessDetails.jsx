@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar2 from './Navbar2';
@@ -6,13 +6,24 @@ import '../main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SuccessDetails = () => {
+  const clickSfx = useRef(null);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       mirror: true,
     });
+    clickSfx.current = new Audio('/sounds/click.wav');
+    clickSfx.current.volume = 0.5;
   }, []);
+
+  const playClick = () => {
+    if (clickSfx.current) {
+      clickSfx.current.currentTime = 0;
+      clickSfx.current.play();
+    }
+  };
 
   const testimonials = [
     {
@@ -63,7 +74,7 @@ const SuccessDetails = () => {
     <div className="bg-transparent">
       <Navbar2 />
       <div className="container-fluid px-4 py-5 mt-5">
-        <h2 className="text-center display-4 fw-bold text-[var(--mocha-dark)] mb-5" style={{color: '#8c5278'}}>
+        <h2 className="text-center display-4 fw-bold mb-5" style={{ color: '#8c5278' }}>
           V Tech Success Stories
         </h2>
 
@@ -79,6 +90,7 @@ const SuccessDetails = () => {
                   !isEven ? 'flex-lg-row-reverse' : ''
                 }`}
                 data-aos={isEven ? 'fade-right' : 'fade-left'}
+                onClick={playClick}
               >
                 {/* Student Image */}
                 <div className="text-center flex-shrink-0">
@@ -98,16 +110,16 @@ const SuccessDetails = () => {
 
                 {/* Student Info */}
                 <div className="px-3" style={{ maxWidth: '600px' }}>
-                  <h3 className="fw-bold fs-2 text-[var(--mocha-dark)] mb-2" style={{color: '#8c5278'}}>
+                  <h3 className="fw-bold fs-2 mb-2" style={{ color: '#8c5278' }}>
                     {student.name}
                     {isTopEarner && (
-                      <span className="badge bg-warning text-dark ms-3 fs-6" >Top Package</span>
+                      <span className="badge bg-warning text-dark ms-3 fs-6">Top Package</span>
                     )}
                   </h3>
 
                   <p className="fs-5 mb-1">
                     <strong>Company:</strong>{' '}
-                    <span className="text-primary" >{student.company}</span>
+                    <span className="text-primary">{student.company}</span>
                   </p>
                   <p className="fs-5 mb-1">
                     <strong>Package:</strong> ₹ {student.salary}
@@ -124,6 +136,7 @@ const SuccessDetails = () => {
                       className="btn btn-outline-primary btn-sm"
                       target="_blank"
                       rel="noreferrer"
+                      onClick={playClick}
                     >
                       <i className="bi bi-linkedin me-1"></i> View LinkedIn
                     </a>

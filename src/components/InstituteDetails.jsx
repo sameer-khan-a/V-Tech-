@@ -1,19 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
 import '../main.css';
 
 const InstituteDetails = ({ institute }) => {
+  const audioRef = useRef(null);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, offset: 100 });
+
+    // Play sound whenever a new animation triggers
+    const handleAOSAnimation = () => {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(() => {}); // avoid autoplay errors
+      }
+    };
+
+    document.addEventListener('aos:in', handleAOSAnimation);
+    return () => document.removeEventListener('aos:in', handleAOSAnimation);
   }, []);
 
   if (!institute) return <div>Loading...</div>;
 
   return (
     <div className="institute-page" data-aos="fade">
-      
+      {/* Audio Element */}
+      <audio ref={audioRef} src="/sounds/click.wav" preload="auto"></audio>
+
       {/* 🔥 Hero Banner */}
       <div className="institute-hero position-relative animate__animated animate__fadeIn">
         <img

@@ -1,121 +1,96 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../main.css';
 
 const Navbar = () => {
+  const clickSfx = useRef(null);
+
+  useEffect(() => {
+    clickSfx.current = new Audio('/sounds/click.wav'); // put file in /public/sounds/
+    clickSfx.current.volume = 0.5; // tweak if needed
+  }, []);
+
+  const playClick = () => {
+    if (!clickSfx.current) return;
+    clickSfx.current.currentTime = 0; // allow rapid consecutive clicks
+    clickSfx.current.play();
+  };
+
   return (
     <nav className="navbar navbar-expand-lg fixed-top shadow-sm py-2" id="custom-navbar">
       <div className="container-fluid px-3 px-lg-5">
-        {/* Brand */}
-        <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#" style={{color: '#d393bd '}}>
-          <img
-            src="/logo.png"
-            alt="V TECH Logo"
-            height="45"
-            width="50"
-            id="logo-img"
-          />
-          V TECH SOLUTIONS
+        {/* Logo + Brand */}
+        <a className="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#" onClick={playClick}>
+          <img src="/logo.png" alt="V TECH Logo" height="45" width="50" />
+          <span className="brand-text" style={{ color: 'white' }}>V TECH SOLUTIONS</span>
         </a>
 
-        {/* Toggle Button */}
+        {/* Mobile Toggle */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          style={{
-            background: '#rgba(230, 199, 219, 1) !important',
-            color: 'white',
-            border: '2px solid white',
-          }}
+          onClick={playClick}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Links */}
+        {/* Nav Items */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav align-items-lg-center w-100 justify-content-end">
-
             {/* Home Dropdown */}
-           {/* Home Dropdown */}
-<li className="nav-item dropdown">
-  <a
-    className="nav-link dropdown-toggle"
-    href="#"
-    id="homeDropdown"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Home
-  </a>
-  <ul className="dropdown-menu" aria-labelledby="homeDropdown" style={{color: 'white'}}>
-    <li><a className="dropdown-item" href="#home" style={{color: 'white'}}>Home</a></li>
-    <li><a className="dropdown-item" href="#MissionVision" style={{color: 'white'}}>About Us</a></li>
-    <li><a className="dropdown-item" href="#leadership" style={{color: 'white'}} >Our Team</a></li>
-    <li><a className="dropdown-item" href="#affiliations" style={{color: 'white'}}>Our Partners</a></li>
-    <li><a className="dropdown-item" href="#placements" style={{color: 'white'}}>Hiring Support</a></li>
-    <li><a className="dropdown-item" href="#success" style={{color: 'white'}}>Testimonials</a></li>
-    <li><a className="dropdown-item" href="#contact" style={{color: 'white'}}>Contact Us</a></li> {/* 👈 New link */}
-  </ul>
-</li>
-
-
-            {/* Static Link */}
-            <li className="nav-item">
-              <a className="nav-link" href="/Courses">Remote Learning</a>
-            </li>
-
-            {/* Courses Dropdown */}
-       {/* Courses Link */}
- <li className="nav-item">
-              <a className="nav-link" href="/CoursesOffered">Courses</a>
-            </li>
-
-
-            {/* CA/CS Link */}
-            <li className="nav-item">
-<a className="nav-link" href="/VTechCACS">CA/CS Coaching</a>
-            </li>
-{/* Events Dropdown */}
-<li className="nav-item dropdown">
-  <a
-    className="nav-link dropdown-toggle"
-    href="#"
-    id="eventsDropdown"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Events
-  </a>
-  <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
-    <li><a className="dropdown-item" href="/VTechActivities">Activities</a></li>
-    <li><a className="dropdown-item" href="/VTechGallery">Gallery</a></li>
-  </ul>
-</li>
-
-            {/* Placements Dropdown */}
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="placementDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={playClick}>
+                Home
+              </a>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="#home" onClick={playClick}>Home</a></li>
+                <li><a className="dropdown-item" href="#MissionVision" onClick={playClick}>About Us</a></li>
+                <li><a className="dropdown-item" href="#leadership" onClick={playClick}>Our Team</a></li>
+                <li><a className="dropdown-item" href="#affiliations" onClick={playClick}>Our Partners</a></li>
+                <li><a className="dropdown-item" href="#placements" onClick={playClick}>Hiring Support</a></li>
+                <li><a className="dropdown-item" href="#success" onClick={playClick}>Testimonials</a></li>
+                <li><a className="dropdown-item" href="#contact" onClick={playClick}>Contact Us</a></li>
+              </ul>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="/Courses" onClick={playClick}>Remote Learning</a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="/CoursesOffered" onClick={playClick}>Courses</a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="/VTechCACS" onClick={playClick}>CA/CS Coaching</a>
+            </li>
+
+            {/* Events */}
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={playClick}>
+                Events
+              </a>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="/VTechActivities" onClick={playClick}>Activities</a></li>
+                <li><a className="dropdown-item" href="/VTechGallery" onClick={playClick}>Gallery</a></li>
+              </ul>
+            </li>
+
+            {/* Placements */}
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={playClick}>
                 Placements
               </a>
-              <ul className="dropdown-menu" aria-labelledby="placementDropdown">
-                <li><a className="dropdown-item" href="/HiringDetails">Hiring Partners</a></li>
-                <li><a className="dropdown-item" href="/SuccessDetails">Success Stories</a></li>
-                <li><a className="dropdown-item" href="/Support">Our Support</a></li>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="/HiringDetails" onClick={playClick}>Hiring Partners</a></li>
+                <li><a className="dropdown-item" href="/SuccessDetails" onClick={playClick}>Success Stories</a></li>
+                <li><a className="dropdown-item" href="/Support" onClick={playClick}>Our Support</a></li>
               </ul>
             </li>
 
