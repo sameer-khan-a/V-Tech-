@@ -1,11 +1,8 @@
-
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../main.css';
 import Navbar2 from './Navbar2';
-
 
 const hiringPartners = [
   {
@@ -71,13 +68,27 @@ const hiringPartners = [
 ];
 
 const HiringDetails = () => {
+  const audioRef = useRef(null);
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
+
+    // Play sound when AOS triggers
+    const handleAOSAnimation = () => {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener('aos:in', handleAOSAnimation);
+    return () => document.removeEventListener('aos:in', handleAOSAnimation);
   }, []);
 
   return (
     <>
       <Navbar2 />
+      <audio ref={audioRef} src="/sounds/click.wav" preload="auto"></audio>
 
       {/* Hero Section */}
       <section className="hero-section text-white text-center d-flex align-items-center" data-aos="fade-down">
@@ -86,16 +97,19 @@ const HiringDetails = () => {
           <p className="lead mt-3 mb-4">
             From global tech giants to India’s top banks, our hiring partners trust the quality of our training and consistently recruit our graduates.
           </p>
-        <button
-  className="btn btn-light px-4 py-2 fw-semibold rounded-pill"
-  onClick={() => {
-    const section = document.getElementById('hiring-partners');
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
-  }}
->
-  Meet Our Partners
-</button>
-
+          <button
+            className="btn btn-light px-4 py-2 fw-semibold rounded-pill"
+            onClick={() => {
+              const section = document.getElementById('hiring-partners');
+              if (section) section.scrollIntoView({ behavior: 'smooth' });
+              if (audioRef.current) {
+                audioRef.current.currentTime = 0;
+                audioRef.current.play();
+              }
+            }}
+          >
+            Meet Our Partners
+          </button>
         </div>
       </section>
 
@@ -153,7 +167,6 @@ const HiringDetails = () => {
 
       {/* Partner Cards */}
       <div className="container py-5" id="hiring-partners" style={{ scrollMarginTop: '70px' }}>
-
         <h2 className="text-center display-5 fw-bold mb-4" style={{ color: '#8c5278' }} data-aos="fade-up">
           Hiring Partners & Roles Offered
         </h2>

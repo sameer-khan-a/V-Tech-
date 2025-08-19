@@ -24,71 +24,55 @@ const MissionVision = () => {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
+  const audioRef = useRef(new Audio('/sounds/click.wav')); // <-- Add your sound file in public folder
+
+  const playSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // reset sound
+      audioRef.current.play().catch(() => {}); // avoid errors if autoplay is blocked
+    }
+  };
 
   const nextSlide = () => {
+    playSound();
     setIndex((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
+    playSound();
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const resetTimer = () => {
     clearInterval(timerRef.current);
-    if (!paused) {
-      timerRef.current = setInterval(nextSlide, 5000);
-    }
+    if (!paused) timerRef.current = setInterval(nextSlide, 5000);
   };
 
-  // Manual nav buttons should reset timer
-  const handleNext = () => {
-    nextSlide();
-    resetTimer();
-  };
-
-  const handlePrev = () => {
-    prevSlide();
-    resetTimer();
-  };
+  const handleNext = () => { nextSlide(); resetTimer(); };
+  const handlePrev = () => { prevSlide(); resetTimer(); };
 
   useEffect(() => {
-    if (!paused) {
-      timerRef.current = setInterval(nextSlide, 5000);
-    }
+    if (!paused) timerRef.current = setInterval(nextSlide, 5000);
     return () => clearInterval(timerRef.current);
   }, [paused]);
 
   return (
-    <section className="mission-vision-section container-fluid px-0 w-100 h-100" style={{ padding: '4rem 0' }}>
+    <section className="mission-vision-section container-fluid px-0 w-100" style={{ padding: '4rem 0' }}>
       {/* Banner Image with Logo */}
       <div className="mv-image-wrapper w-100 text-center">
         <div className="position-relative">
           <img src="/VisionMission.jpg" alt="Students" className="mv-image" />
-          <img
-            src="/logo.png"
-            alt="V Tech Logo"
-            className="position-absolute"
-            style={{
-              bottom: '10px',
-              left: '10px',
-              height: '50px',
-            }}
-          />
+          <img src="/logo.png" alt="V Tech Logo" className="position-absolute" style={{ bottom: '10px', left: '10px', height: '50px' }} />
         </div>
       </div>
 
       {/* Content Grid */}
       <div className="row w-100 m-0">
         {/* About Us */}
-        <div
-          className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center"
-          style={{ backgroundColor: '#f0b5df' }}
-        >
+        <div className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center" style={{ backgroundColor: '#f0b5df' }}>
           <div className="p-4" style={{ maxWidth: '700px' }}>
             <img src="/logo.png" alt="V Tech Logo" style={{ height: '50px' }} />
-            <h2 className="fw-bold mb-3" style={{ color: '#8c5278' }}>
-              About Us
-            </h2>
+            <h2 className="fw-bold mb-3" style={{ color: '#8c5278' }}>About Us</h2>
             <p className="lead" style={{ color: '#5c5c5c' }}>
               V Tech Solutions is one of the most innovative education institutions focused on empowering students
               through quality training. We provide skill-building programs aligned with the New Education Policy,
@@ -112,7 +96,7 @@ const MissionVision = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.4 }}
                 className="p-4 rounded"
                 style={{ minHeight: '280px' }}
               >

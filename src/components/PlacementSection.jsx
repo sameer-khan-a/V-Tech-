@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../main.css';
 
 const partnerLogos = [
@@ -8,17 +8,31 @@ const partnerLogos = [
   { src: '/johnson.png', alt: 'Johnson Controls', name: 'JOHNSON CONTROLS' },
   { src: '/accenture.png', alt: 'Accenture', name: 'ACCENTURE' },
   { src: '/tcs.png', alt: 'TCS', name: 'TCS' },
-  { src: '/amazon.png', alt: 'amazon', name: 'AMAZON' },
-  { src: '/kotak.png', alt: 'kotak', name: 'KOTAK' },
-  { src: '/oracle.png', alt: 'oracle', name: 'ORACLE' },
-  { src: '/ibm.png', alt: 'ibm', name: 'IBM' },
-  { src: '/hitachi.png', alt: 'hitachi', name: 'HITACHI' },
-  { src: '/icici.png', alt: 'icici', name: 'ICICI' },
+  { src: '/amazon.png', alt: 'Amazon', name: 'AMAZON' },
+  { src: '/kotak.png', alt: 'Kotak', name: 'KOTAK' },
+  { src: '/oracle.png', alt: 'Oracle', name: 'ORACLE' },
+  { src: '/ibm.png', alt: 'IBM', name: 'IBM' },
+  { src: '/hitachi.png', alt: 'Hitachi', name: 'HITACHI' },
+  { src: '/icici.png', alt: 'ICICI', name: 'ICICI' },
 ];
 
-const logos = [...partnerLogos, ...partnerLogos]; // loop
+const logos = [...partnerLogos, ...partnerLogos]; // loop for infinite scroll
 
 const PlacementSection = () => {
+  const clickSfx = useRef(null);
+
+  useEffect(() => {
+    clickSfx.current = new Audio('/sounds/click.wav');
+    clickSfx.current.volume = 0.5;
+  }, []);
+
+  const playClick = () => {
+    if (clickSfx.current) {
+      clickSfx.current.currentTime = 0;
+      clickSfx.current.play();
+    }
+  };
+
   return (
     <div
       id="placement"
@@ -45,10 +59,7 @@ const PlacementSection = () => {
               </span>
             </h2>
             <p className="fs-5 text" style={{ color: 'black' }}>
-              At <strong>V Tech Solutions</strong>, we go beyond training —
-              we equip individuals with the skills, confidence, and support
-              they need to secure real jobs. Our goal is to bridge the gap
-              between learning and employment.
+              At <strong>V Tech Solutions</strong>, we go beyond training — we equip individuals with the skills, confidence, and support they need to secure real jobs. Our goal is to bridge the gap between learning and employment.
             </p>
           </div>
 
@@ -63,7 +74,10 @@ const PlacementSection = () => {
                 maxWidth: '480px',
                 objectFit: 'cover',
                 borderRadius: '15%',
+                transition: 'transform 0.3s ease-in-out',
               }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+              onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             />
           </div>
         </div>
@@ -75,12 +89,13 @@ const PlacementSection = () => {
               href="/HiringDetails"
               className="btn px-5 py-2 fs-5 fw-semibold rounded-pill"
               style={{
-                backgroundColor: "#8c5278",
-                color: "white",
-                transition: "background-color 0.3s ease",
+                backgroundColor: '#8c5278',
+                color: 'white',
+                transition: 'background-color 0.3s ease',
               }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#6e3f5f")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#8c5278")}
+              onClick={playClick}
+              onMouseOver={(e) => (e.target.style.backgroundColor = '#6e3f5f')}
+              onMouseOut={(e) => (e.target.style.backgroundColor = '#8c5278')}
             >
               Learn More
             </a>

@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar2 from "./Navbar2";
 import "../main.css";
+
+const clickSound = new Audio("/sounds/click.wav"); // Preload the sound
 
 const partners = [
   {
@@ -93,13 +94,20 @@ const AffiliationsSection = () => {
     return pauseTimer;
   }, []);
 
+  const playClick = () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  };
+
   const handleNext = () => {
+    playClick();
     pauseTimer();
     setIndex((prev) => (prev + 1) % partners.length);
     startTimer();
   };
 
   const handlePrev = () => {
+    playClick();
     pauseTimer();
     setIndex((prev) => (prev - 1 + partners.length) % partners.length);
     startTimer();
@@ -108,9 +116,7 @@ const AffiliationsSection = () => {
   const current = partners[index];
 
   return (
-    <>
     <section className="position-relative d-flex flex-column justify-content-center align-items-center min-vh-60 w-100 px-3 py-5 mt-4 overflow-hidden">
-    
       {/* Blurred Background Image */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -134,11 +140,11 @@ const AffiliationsSection = () => {
             zIndex: 1,
             opacity: 0.2
           }}
-          />
+        />
       </AnimatePresence>
 
       {/* Section Heading */}
-      <div className=" text-center z-3">
+      <div className="text-center z-3">
         <h1 className="fw-bold mb-2" style={{ color: "#8c5278" }}>
           Our Collaborations
         </h1>
@@ -164,7 +170,7 @@ const AffiliationsSection = () => {
             backgroundColor: "rgba(247, 246, 246, 0.29)",
             borderRadius: "1rem"
           }}
-          >
+        >
           <div className="d-flex flex-column align-items-center">
             <img
               src={current.logo}
@@ -174,8 +180,11 @@ const AffiliationsSection = () => {
                 objectFit: "contain",
                 marginBottom: "1rem"
               }}
-              />
-            <p className="text-black text-center mb-3" style={{ fontSize: "1.05rem" }}>
+            />
+            <p
+              className="text-black text-center mb-3"
+              style={{ fontSize: "1.05rem" }}
+            >
               {current.desc}
             </p>
             <h3 className="fw-semibold text-dark mb-1">{current.name}</h3>
@@ -186,14 +195,14 @@ const AffiliationsSection = () => {
               <button
                 onClick={handlePrev}
                 className="btn btn-outline-dark rounded-pill px-4"
-                >
+              >
                 ◀ Prev
               </button>
               <button
                 onClick={handleNext}
                 className="btn rounded-pill px-4"
                 style={{ backgroundColor: "#8c5278", color: "white" }}
-                >
+              >
                 Next ▶
               </button>
             </div>
@@ -202,7 +211,7 @@ const AffiliationsSection = () => {
       </div>
 
       {/* Learn More CTA */}
-      <div className=" z-3 text-center">
+      <div className="z-3 text-center">
         <a
           href="/Support"
           className="btn px-5 fs-5 fw-semibold rounded-pill"
@@ -213,12 +222,11 @@ const AffiliationsSection = () => {
           }}
           onMouseOver={(e) => (e.target.style.backgroundColor = "#6e3f5f")}
           onMouseOut={(e) => (e.target.style.backgroundColor = "#8c5278")}
-          >
+        >
           Learn More
         </a>
       </div>
     </section>
-          </>
   );
 };
 

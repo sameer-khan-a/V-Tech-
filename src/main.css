@@ -1,11 +1,65 @@
-/* ---------------- NAVBAR ---------------- */
+/* Navbar Styles */
 #custom-navbar {
-  background-color: rgb(107, 62, 91);
+  background: linear-gradient(90deg, #8C5278, #a96a91); /* purple gradient */
+  font-family: 'Poppins', sans-serif;
   z-index: 999;
-  padding: 0.7rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  font-family: "Marcellus", serif;
+  transition: background 0.3s ease;
 }
+
+/* Brand */
+.navbar-brand .brand-text {
+  color: #fff;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+/* Nav Links - white by default */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+/* Hover - white background with purple text */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background-color: #ffffff;
+  color: #8C5278 !important;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: #fff;
+  border: 1px solid #f2c9e0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.dropdown-item {
+  color: #ffffff;
+  background-color: #8C5278;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #ffffff;
+  color: #8C5278;
+}
+
+/* Custom Toggler */
+.custom-toggler {
+  border: 2px solid #fff;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 .learn-more-btn {
   background-color: #8c5278fd;
   color: white;
@@ -242,16 +296,17 @@ max-width: 860px;
   border-radius: 5px;
   font-size: 0.8rem;
   font-weight: bold;
+  background-color: #8c5278;
 }
 
 .tag.free {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #8c5278;
+  color: white;
 }
 
 .tag.paid {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #8c5278;
+  color: white;
 }
 
 .cta-section {
@@ -468,7 +523,7 @@ background: #553249;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.445);
   backdrop-filter: blur(5px);
   padding: 1rem;
   opacity: 0;
@@ -548,11 +603,11 @@ background: #553249;
 }
 
 .tag.free {
-  background-color: #28a745;
+  background-color: #8c5278;
 }
 
 .tag.paid {
-  background-color: #dc3545;
+  background-color: #8c5278;
 }
 
 .fade-in {
@@ -613,7 +668,7 @@ background: #553249;
 /* Card glow and hover polish */
 #achievers-2 {
   margin-top: 8rem;
-  height: 100vh;
+  min-height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -630,17 +685,6 @@ background: #553249;
   text-align: center;
   position: relative;
 }
-.achiever-image-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 300px; /* or 350px / 400px based on your need */
-  border-radius: 1rem;
-  color: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: flex-end;
-}
 
 #achievers-2 h2::after {
   content: "";
@@ -649,12 +693,13 @@ background: #553249;
   height: 4px;
   margin: 12px auto 0 auto;
   border-radius: 9999px;
+  background-color: #facc15;
 }
 
-/* Card wrapper using Bootstrap col-md-6 */
+/* Card container */
 #achievers-2 .card-custom {
   position: relative;
-  height: 24rem;
+  height: 350px;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
@@ -666,64 +711,53 @@ background: #553249;
   transform: scale(1.05);
 }
 
-#achievers-2 .card-custom::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  transition: border 0.4s ease;
-  z-index: 1;
-}
-
-#achievers-2 .card-custom:hover::before {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Background image class — alternate left/right */
-#achievers-2 .card-img-left,
-#achievers-2 .card-img-right {
-  background-size: cover;
-  background-position: center;
+#achievers-2 .card-custom img {
   height: 100%;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  object-fit: cover;
 }
 
-/* Optional alignment if you want variation */
-#achievers-2 .card-img-left {
-  background-position: left;
-}
-
-#achievers-2 .card-img-right {
-  background-position: right;
-}
-
-/* Content inside card (on top of image) */
+/* Glassmorphic bottom content */
 #achievers-2 .card-content {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.4); /* fallback */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 2;
-  padding: 1.5rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  border-radius: 1rem;
+  justify-content: center;
+  text-align: center;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 #achievers-2 .card-content h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: #facc15;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 #achievers-2 .card-content p {
   font-size: 0.9rem;
-  color: #e5e7eb;
+  color: #fefce8;
+}
+
+/* Responsive title */
+@media (max-width: 768px) {
+  #achievers-2 h2 {
+    font-size: 2rem;
+  }
+
+  #achievers-2 .card-content p {
+    font-size: 0.85rem;
+  }
 }
 
 /* Responsive title text */
@@ -1307,7 +1341,7 @@ h2, h3 {
 
 /* === FULL HEIGHT FIXES === */
 .sections {
-  scroll-margin-top: 50px; /* for navbar offset */
+  scroll-margin-top: 60px; /* for navbar offset */
 }
 
 /* === RESPONSIVENESS === */
@@ -1699,7 +1733,7 @@ h2, h3 {
 /* Responsive adjustments (mobile view) */
 @media (max-width: 991px) {
   #custom-navbar .navbar-collapse {
-    background: #f8e6f2;
+    background: #c983b1;
     
     color: #c57bab !important;
     margin-top: 0.8rem;
@@ -1980,7 +2014,7 @@ h2, h3 {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 550;
-  color: #d393bd !important;
+  color: #ffffff !important;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -2309,7 +2343,8 @@ html {
 .success-section {
   position: relative;
   overflow: hidden;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  height: 100vh;
 }
 
 .slick-list {

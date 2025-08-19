@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,6 +7,7 @@ import '../main.css';
 const SuccessStories = () => {
   const sliderRef = useRef(null);
   const [slideSpeed, setSlideSpeed] = useState(2000);
+  const clickSfx = useRef(null);
 
   const testimonials = [
     {
@@ -53,7 +54,20 @@ const SuccessStories = () => {
     },
   ];
 
+  useEffect(() => {
+    clickSfx.current = new Audio('/sounds/click.wav'); // Ensure file is in /public/sounds/
+    clickSfx.current.volume = 0.5;
+  }, []);
+
+  const playClick = () => {
+    if (clickSfx.current) {
+      clickSfx.current.currentTime = 0;
+      clickSfx.current.play();
+    }
+  };
+
   const handleArrowClick = (direction) => {
+    playClick();
     setSlideSpeed(300);
     setTimeout(() => setSlideSpeed(2000), 400);
     direction === 'next'
@@ -79,7 +93,7 @@ const SuccessStories = () => {
   };
 
   return (
-    <div className="success-section text-center py-5 d-flex flex-column justify-content-center">
+    <div className="success-section text-center py-5 d-flex flex-column justify-content-center" style={{ scrollMarginTop: '20px' }}>
       <h2 className="fw-bold mb-2 display-5" style={{ color: '#8c5278' }}>
         Hired & Thriving
       </h2>
@@ -90,9 +104,9 @@ const SuccessStories = () => {
           {testimonials.map((t, idx) => (
             <div key={idx} className="px-3 py-4 d-flex flex-column align-items-center">
               <div className="zoom-wrapper d-flex justify-content-center align-items-center">
-                <div className="testimonial-card p-4 shadow rounded-5  hover-scale">
+                <div className="testimonial-card p-4 shadow rounded-5 hover-scale">
                   <div className="testimonial-img-wrapper mx-auto mb-3">
-                    <img src={t.img} alt={t.name} className="testimonial-img " />
+                    <img src={t.img} alt={t.name} className="testimonial-img" />
                   </div>
                   <h5 className="fw-semibold" style={{ color: 'rgb(99, 60, 85)' }}>{t.name}</h5>
                   <p className="text-muted mb-1 fw-bold">{t.salary}</p>
@@ -119,6 +133,7 @@ const SuccessStories = () => {
           }}
           onMouseOver={(e) => (e.target.style.backgroundColor = "#6e3f5f")}
           onMouseOut={(e) => (e.target.style.backgroundColor = "#8c5278")}
+          onClick={playClick}
         >
           Learn More
         </a>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -38,7 +38,14 @@ const Home = () => {
   const [displayed, setDisplayed] = useState('');
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [showMarquee, setShowMarquee] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
 
+  const bgAudioRef = useRef(null);
+  const clickAudioRef = useRef(null);
+  const videoRef = useRef(null);
+
+  // Rotate typed messages
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % typedMessages.length);
@@ -46,6 +53,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Animate fade for typed messages
   useEffect(() => {
     setFadeClass('fade-out');
     const timeout = setTimeout(() => {
@@ -55,16 +63,125 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [current]);
 
+  // Enable audio on first user click
+ // Enable audio on first user interaction
+useEffect(() => {
+  const enableAudio = () => {
+    if (bgAudioRef.current && !isPlaying) {
+      bgAudioRef.current.muted = false; // Ensure it's not muted
+      bgAudioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((err) => {
+          console.log("Autoplay blocked, user must click Play Music button:", err);
+        });
+    }
+  };
+  window.addEventListener('click', enableAudio, { once: true });
+  return () => window.removeEventListener('click', enableAudio);
+}, [isPlaying]);
+
+
+  const playClickSound = () => {
+    if (clickAudioRef.current) {
+      clickAudioRef.current.currentTime = 0;
+      clickAudioRef.current.play().catch(() => {});
+    }
+  };
+
+const toggleAudio = () => {
+  if (!bgAudioRef.current) return;
+  if (isPlaying) {
+    bgAudioRef.current.pause();
+    setIsPlaying(false);
+  } else {
+    bgAudioRef.current
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch(() => console.log("Play failed"));
+  }
+};
+
+  const toggleVideoSound = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isVideoMuted;
+    setIsVideoMuted(!isVideoMuted);
+  };
+
   return (
     <>
       <Navbar />
+      <audio ref={bgAudioRef} src="/sounds/home.mp3" loop preload="auto"></audio>
+      <audio ref={clickAudioRef} src="/sounds/click.wav" preload="auto"></audio>
 
       {/* Hero Section */}
       <div className="home-container position-relative text-white text-center" id="home">
-        <video autoPlay muted loop className="bg-video">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted={isVideoMuted}
+          className="bg-video"
+        >
           <source src="/Vtech.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* Floating Music Toggle Button */}
+        <button
+          onClick={() => {
+            playClickSound();
+            toggleAudio();
+          }}
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            zIndex: 9999,
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: isPlaying ? 'rgba(232, 139, 199, 0.9)' : 'rgba(140, 82, 120, 0.9)',
+            color: '#fff',
+            border: 'none',
+            fontSize: '28px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.4)',
+            transition: 'all 0.3s ease'
+          }}
+          title={isPlaying ? 'Pause Music' : 'Play Music'}
+        >
+          {isPlaying ? '🔊' : '🔇'}
+        </button>
+
+        {/* Floating Video Mute/Unmute Button */}
+        <button
+          onClick={() => {
+            playClickSound();
+            toggleVideoSound();
+          }}
+          style={{
+            position: 'fixed',
+            bottom: '90px',
+            right: '20px',
+            zIndex: 9999,
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: isVideoMuted ? 'rgba(140, 82, 120, 0.9)' : 'rgba(232, 139, 199, 0.9)',
+            color: '#fff',
+            border: 'none',
+            fontSize: '28px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.4)',
+            transition: 'all 0.3s ease'
+          }}
+          title={isVideoMuted ? 'Unmute Video' : 'Mute Video'}
+        >
+          {isVideoMuted ? '🔇' : '🔊'}
+        </button>
 
         <div className="position-absolute top-50 start-50 translate-middle overlay-content">
           <h2 className="mb-1 typing-text">Innovate, Integrate, Accelerate</h2>
@@ -89,7 +206,12 @@ const Home = () => {
 
           <h3 className="mb-4">V TECH SOLUTIONS</h3>
 
-          <a href="#MissionVision" id="btn-orchid" className="btn btn-lg px-5 py-2 rounded-4">
+          <a
+            href="#MissionVision"
+            id="btn-orchid"
+            className="btn btn-lg px-5 py-2 rounded-4"
+            onClick={playClickSound}
+          >
             Learn More
           </a>
 
@@ -108,7 +230,10 @@ const Home = () => {
           <div className="qr-ad-box zoom-effect">
             <span
               className="qr-close-btn"
-              onClick={() => (document.getElementById('quizAd').style.display = 'none')}
+              onClick={() => {
+                playClickSound();
+                document.getElementById('quizAd').style.display = 'none';
+              }}
               role="button"
               aria-label="Close Quiz Ad"
             >
@@ -123,6 +248,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="qr-button"
+              onClick={playClickSound}
             >
               Take Test
             </a>
@@ -130,7 +256,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Page Sections without AOS */}
+      {/* Page Sections */}
       <section id="MissionVision" className="scroll-section">
         <MissionVision />
       </section>
@@ -161,7 +287,10 @@ const Home = () => {
           <div
             className="position-fixed bottom-0 end-0 translate-middle-x text-white fw-bold"
             style={{ zIndex: 1050, marginBottom: '2.8rem', marginLeft: '1rem', cursor: 'pointer' }}
-            onClick={() => setShowMarquee(false)}
+            onClick={() => {
+              playClickSound();
+              setShowMarquee(false);
+            }}
           >
             <button
               className="btn btn-sm px-3 py-1 fw-bold"

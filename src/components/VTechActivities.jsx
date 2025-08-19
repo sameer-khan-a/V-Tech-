@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../main.css";
 import Navbar2 from "./Navbar2";
 
 const activityExtensions = [
-  'jpg', 'jpg', 'jpg', 'png', 'png', 'png', 'png', 'png', 'png',
-  'png', 'png', 'png', 'png', 'png', 'jpg', 'jpg', 'jpg', 'jpg',
-  'jpg', 'jpg', 'jpg', 'jpg', 'jpg', 'jpg', 'jpg', 'jpg'
+  "jpg", "jpg", "jpg", "png", "png", "png", "png", "png", "png",
+  "png", "png", "png", "png", "png", "jpg", "jpg", "jpg", "jpg",
+  "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"
 ];
 
 const activityImages = activityExtensions.map((ext, i) => ({
@@ -18,14 +18,28 @@ const activityImages = activityExtensions.map((ext, i) => ({
 const VTechActivities = () => {
   const [selected, setSelected] = useState(null);
 
+  // --- CLICK SOUND SETUP ---
+  const clickSfx = useRef(null);
+  useEffect(() => {
+    clickSfx.current = new Audio("/sounds/click.wav"); // Place file inside /public/sounds
+    clickSfx.current.volume = 0.5;
+  }, []);
+
+  const playClick = () => {
+    if (!clickSfx.current) return;
+    clickSfx.current.currentTime = 0;
+    clickSfx.current.play();
+  };
+  // -------------------------
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
 
     const handleEsc = (e) => {
-      if (e.key === 'Escape') setSelected(null);
+      if (e.key === "Escape") setSelected(null);
     };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
   return (
@@ -33,10 +47,16 @@ const VTechActivities = () => {
       <Navbar2 />
 
       {/* HERO */}
-      <section className="activity-hero bg-blur" style={{ backgroundImage: 'url(/Activities/Activity8.png)' }}>
+      <section
+        className="activity-hero bg-blur"
+        style={{ backgroundImage: "url(/Activities/Activity8.png)" }}
+      >
         <div className="container" data-aos="fade-down">
           <h1>V TECH Activities</h1>
-          <p>Dive into the thrilling events, workshops, and celebrations that make our legacy shine.</p>
+          <p>
+            Dive into the thrilling events, workshops, and celebrations that
+            make our legacy shine.
+          </p>
         </div>
       </section>
 
@@ -48,13 +68,17 @@ const VTechActivities = () => {
               key={i}
               className="activity-card"
               data-aos="fade-up"
-              onClick={() => setSelected(activity)}
+              onClick={() => {
+                playClick();
+                setSelected(activity);
+              }}
             >
               <img src={activity.src} alt={activity.alt} loading="lazy" />
               <div className="activity-card-content">
                 <h3>{activity.alt}</h3>
                 <p>
-                  A cherished moment that showcases the vibrant culture, innovation, and joy at V TECH.
+                  A cherished moment that showcases the vibrant culture,
+                  innovation, and joy at V TECH.
                 </p>
               </div>
             </div>
@@ -63,21 +87,48 @@ const VTechActivities = () => {
       </section>
 
       {/* CTA */}
-      <section className="activity-cta bg-blur mt-5" style={{ backgroundImage: 'url(/Activities/Activity10.png)' }}>
+      <section
+        className="activity-cta bg-blur mt-5"
+        style={{ backgroundImage: "url(/Activities/Activity10.png)" }}
+      >
         <div className="container" data-aos="zoom-in">
-          <h2 style={{color: '#f194cf'}}>Be Part of the Action Next Time!</h2>
-          <p>From tech talks to talent nights—our events shape leaders and leave memories. Join us now!</p>
-          <a href="/BookAppointment">Join the Legacy</a>
+          <h2 style={{ color: "#f194cf" }}>Be Part of the Action Next Time!</h2>
+          <p>
+            From tech talks to talent nights—our events shape leaders and leave
+            memories. Join us now!
+          </p>
+          <a
+            href="/BookAppointment"
+            onClick={playClick}
+          >
+            Join the Legacy
+          </a>
         </div>
       </section>
 
       {/* ZOOM MODAL */}
       {selected && (
-        <div className="activity-modal" onClick={() => setSelected(null)}>
+        <div
+          className="activity-modal"
+          onClick={(e) => {
+            if (e.target.classList.contains("activity-modal")) {
+              playClick();
+              setSelected(null);
+            }
+          }}
+        >
           <div className="activity-modal-content" data-aos="zoom-in">
             <img src={selected.src} alt={selected.alt} />
             <p className="zoom-caption">{selected.alt}</p>
-            <button className="activity-close">✕</button>
+            <button
+              className="activity-close"
+              onClick={() => {
+                playClick();
+                setSelected(null);
+              }}
+            >
+              ✕
+            </button>
           </div>
         </div>
       )}
