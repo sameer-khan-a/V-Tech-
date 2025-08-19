@@ -242,13 +242,13 @@ const VtechCACS = () => {
         {
           title: "Success Rate",
           desc: "Achieving 80%+ clearance rate across multiple attempts consistently.",
-          img: "/cacs/rank.png",
+          img: "/cacs/Rank.png",
           className: "achiever-img-3",
         },
         {
           title: "Personal Mentorship",
           desc: "Regular check-ins, progress tracking, and motivational sessions with mentors.",
-          img: "/cacs/rank.png",
+          img: "/cacs/Rank.png",
           className: "achiever-img-4",
         },
       ].map((card, idx) => (
