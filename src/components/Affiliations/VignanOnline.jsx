@@ -9,10 +9,10 @@ const VignanInstitute = {
   description:
     "Vignan University Online offers UGC‑DEB, AICTE‑approved & NAAC A+ accredited online UG/PG programs (BBA, BCA, MBA, MCA) plus value-added certificate courses, live sessions, strong LMS and placement support.",
   courses: [
-    { name: "Online BBA", duration: "3 Years", image: "/thumbnails/vignan/vignan1.avif" },
-    { name: "Online BCA", duration: "3 Years", image: "/thumbnails/vignan/vignan2.avif" },
-    { name: "Online MBA (multiple specializations)", duration: "2 Years", image: "/thumbnails/vignan/vignan3.avif" },
-    { name: "Online MCA", duration: "2 Years", image: "/thumbnails/vignan/vignan4.avif" }
+    { name: "Online BBA", duration: "3 Years", image: "/thumbnails/Vignan/Vignan1.avif" },
+    { name: "Online BCA", duration: "3 Years", image: "/thumbnails/Vignan/Vignan2.avif" },
+    { name: "Online MBA (multiple specializations)", duration: "2 Years", image: "/thumbnails/Vignan/Vignan3.avif" },
+    { name: "Online MCA", duration: "2 Years", image: "/thumbnails/Vignan/Vignan4.avif" }
   ],
   gallery: [
     "https://source.unsplash.com/400x250/?guntur,university",

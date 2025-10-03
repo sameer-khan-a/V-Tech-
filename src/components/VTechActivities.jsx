@@ -5,7 +5,7 @@ import "../main.css";
 import Navbar2 from "./Navbar2";
 
 const activityExtensions = [
-  "jpg", "jpg", "jpg", "png", "png", "png", "png", "png", "png",
+  "JPG", "JPG", "JPG", "png", "png", "png", "png", "png", "png",
   "png", "png", "png", "png", "png", "jpg", "jpg", "jpg", "jpg",
   "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"
 ];

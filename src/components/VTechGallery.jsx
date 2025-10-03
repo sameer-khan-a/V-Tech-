@@ -5,12 +5,12 @@ import '../main.css';
 import Navbar2 from './Navbar2';
 
 const galleryImages = Array.from({ length: 23 }, (_, i) => ({
-  src: `/gallery/gallery${i + 1}.jpg`,
+  src: `/Gallery/Gallery${i + 1}.JPG`,
   alt: `V TECH Moment ${i + 1}`,
 }));
 
 const campusImages = Array.from({ length: 14 }, (_, i) => ({
-  src: `/campus/campus${i + 1}.${i + 1 < 8 ? 'jpg' : 'jpeg'}`,
+  src: `/Campus/campus${i + 1}.${i + 1 < 8 ? 'JPG' : 'jpeg'}`,
   alt: `V TECH Campus View ${i + 1}`,
 }));
 

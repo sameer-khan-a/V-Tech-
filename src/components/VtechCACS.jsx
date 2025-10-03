@@ -111,7 +111,7 @@ const VtechCACS = () => {
                 Our alumni include AIR holders across CA Foundation, CS Executive, and Intermediate. We share their success stories to inspire the next gen.
               </p>
             </div>
-            <img src="/cacs/rank.png" alt="Rank Holders" className="w-full md:w-1/2 rounded-xl shadow-lg" />
+            <img src="/cacs/Rank.png" alt="Rank Holders" className="w-full md:w-1/2 rounded-xl shadow-lg" />
           </div>
         </div>
       </section>

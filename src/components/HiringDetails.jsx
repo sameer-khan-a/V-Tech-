@@ -7,17 +7,17 @@ import Navbar2 from './Navbar2';
 const hiringPartners = [
   {
     name: 'Google',
-    logo: '/google.png',
+    logo: '/Google.png',
     desc: 'Google recruits from our advanced tech pools for roles such as Software Engineer, Site Reliability Engineer, and Cloud Associate. Their process includes DSA-heavy coding rounds, system design interviews, and product sense evaluations. Candidates who crack it are often placed in development teams contributing to Chrome, Search, or Google Cloud.'
   },
   {
     name: 'Infosys',
-    logo: '/infosys.png',
+    logo: '/Infosys.png',
     desc: 'Infosys conducts mass hiring through its InfyTQ platform and campus drives for roles like System Engineer, QA Analyst, and Support Executive. The selection process involves online aptitude tests, Java/Python coding challenges, and behavioral interviews. Selected students often undergo Infosys’ Mysore training before onboarding.'
   },
   {
     name: 'HDFC Bank',
-    logo: '/hdfc.png',
+    logo: '/HDFC.png',
     desc: 'HDFC hires for roles in IT support, data analytics, and cybersecurity with a focus on digital banking systems. The interview rounds involve logic building, domain understanding, and banking tech frameworks like Finacle. Many graduates join their digital transformation team or backend infrastructure units.'
   },
   {

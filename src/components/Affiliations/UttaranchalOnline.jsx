@@ -9,11 +9,11 @@ const UttaranchalInstitute = {
   description:
     "Uttaranchal University Online (NAAC A+, UGC‑DEB & AICTE approved) offers fully online UG and PG degree programs via a modern LMS with live lectures, LMS access, placement support, and apprenticeship options.",
   courses: [
-    { name: "B.A. (Online)", duration: "3 Years", image: "/thumbnails/uttaranchal/Uttaranchal1.avif" },
-    { name: "BBA (Online)", duration: "3 Years", image: "/thumbnails/uttaranchal/Uttaranchal2.avif" },
-    { name: "BCA (Online)", duration: "3 Years", image: "/thumbnails/uttaranchal/Uttaranchal3.avif" },
-    { name: "MBA (Online)", duration: "2 Years", image: "/thumbnails/uttaranchal/Uttaranchal4.avif" },
-    { name: "MCA (Online)", duration: "2 Years", image: "/thumbnails/uttaranchal/Uttaranchal5.avif" }
+    { name: "B.A. (Online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal1.avif" },
+    { name: "BBA (Online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal2.avif" },
+    { name: "BCA (Online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal3.avif" },
+    { name: "MBA (Online)", duration: "2 Years", image: "/thumbnails/Uttaranchal/Uttaranchal4.avif" },
+    { name: "MCA (Online)", duration: "2 Years", image: "/thumbnails/Uttaranchal/Uttaranchal5.avif" }
   ],
   gallery: [
     "https://source.unsplash.com/400x250/?dehradun,university",

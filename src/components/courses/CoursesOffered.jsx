@@ -44,7 +44,7 @@ const CoursesOffered = () => {
           >
             <div className="course-home-card">
               <video
-                src="/courses/video2.mp4"
+                src="/Courses/Video2.mp4"
                 autoPlay
                 loop
                 muted
@@ -65,7 +65,7 @@ const CoursesOffered = () => {
           >
             <div className="course-home-card">
               <video
-                src="/courses/video1.mp4"
+                src="/Courses/Video1.mp4"
                 autoPlay
                 loop
                 muted

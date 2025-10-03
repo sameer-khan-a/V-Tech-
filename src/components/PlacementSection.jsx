@@ -2,9 +2,9 @@ import React from 'react';
 import '../main.css';
 
 const partnerLogos = [
-  { src: '/google.png', alt: 'Google', name: 'GOOGLE' },
-  { src: '/infosys.png', alt: 'Infosys', name: 'INFOSYS' },
-  { src: '/hdfc.png', alt: 'HDFC Bank', name: 'HDFC' },
+  { src: '/Google.png', alt: 'Google', name: 'GOOGLE' },
+  { src: '/Infosys.png', alt: 'Infosys', name: 'INFOSYS' },
+  { src: '/HDFC.png', alt: 'HDFC Bank', name: 'HDFC' },
   { src: '/johnson.png', alt: 'Johnson Controls', name: 'JOHNSON CONTROLS' },
   { src: '/accenture.png', alt: 'Accenture', name: 'ACCENTURE' },
   { src: '/tcs.png', alt: 'TCS', name: 'TCS' },

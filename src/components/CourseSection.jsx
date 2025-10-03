@@ -6,14 +6,14 @@ import '../main.css';
 import Navbar2 from './Navbar2';
 
 const courseData = [
-  { title: 'Jain Online', image: '/thumbnails/JainOnline.png', video: '/videos/Jain University.jpg', link: '/JainOnline' },
-  { title: 'Jain WLP (Work Learn Program)', image: '/thumbnails/JainWLP.png', video: '/videos/JainWLP.jpg', link: '/JainWLP' },
-  { title: 'Mizoram University', image: '/thumbnails/MizoramUniversity.png', video: '/videos/Mizoram University.jpg', link: '/MizoramUniversity' },
-  { title: 'Uttaranchal University', image: '/thumbnails/Uttaranchal_University.png', video: '/videos/Uttaranchal University.jpg', link: '/UttaranchalUniversity' },
-  { title: 'Bengaluru University', image: '/thumbnails/Bengaluru_University.png', video: '/videos/bengaluru university.jpg', link: '/BangloreUniversity' },
-  { title: 'Karnataka State Open University', image: '/thumbnails/Open_University.png', video: '/videos/open university.webp', link: '/KSOUUniversity' },
-  { title: 'Vignan University', image: '/thumbnails/Vignan_University.png', video: '/videos/Vignan University.jpg', link: '/VignanUniversity' },
-  { title: 'Andhra University', image: '/thumbnails/Andhra_University.png', video: '/videos/andhra university.jpeg', link: '/AndhraUniversity' },
+  { title: 'Jain Online', image: '/thumbnails/JainOnline.png', video: '/videos/jain university.jpg', link: '/JainOnline' },
+  { title: 'Jain WLP (Work Learn Program)', image: '/thumbnails/jainWLP.png', video: '/videos/JainWLP.jpg', link: '/JainWLP' },
+  { title: 'Mizoram University', image: '/thumbnails/MizoramUniversity.png', video: '/videos/mizoram university.jpg', link: '/MizoramUniversity' },
+  { title: 'Uttaranchal University', image: '/thumbnails/uttaranchal_university.png', video: '/videos/uttaranchal university.jpg', link: '/UttaranchalUniversity' },
+  { title: 'Bengaluru University', image: '/thumbnails/bengaluru_university.png', video: '/videos/bengaluru university.jpg', link: '/BangloreUniversity' },
+  { title: 'Karnataka State Open University', image: '/thumbnails/open_university.png', video: '/videos/open university.webp', link: '/KSOUUniversity' },
+  { title: 'Vignan University', image: '/thumbnails/vignan_university.png', video: '/videos/vignan university.jpg', link: '/VignanUniversity' },
+  { title: 'Andhra University', image: '/thumbnails/andhra_university.png', video: '/videos/andhra university.jpeg', link: '/AndhraUniversity' },
 ];
 
 const CoursesSection = () => {

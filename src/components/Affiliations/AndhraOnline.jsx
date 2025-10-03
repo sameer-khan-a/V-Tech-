@@ -10,13 +10,13 @@ const AndhraInstitute = {
   description:
     "Andhra University’s CDOE offers recognized online and distance programs—UG, PG, diploma, certificate—designed for working professionals and distance learners.",
   courses: [
-    { name: "B.Com (Accountancy)", duration: "3 Years", image: "/thumbnails/andhra/andhra1.avif" },
-    { name: "B.A. (History, Economics, Politics)", duration: "3 Years", image: "/thumbnails/andhra/andhra2.avif" },
+    { name: "B.Com (Accountancy)", duration: "3 Years", image: "/thumbnails/Andhra/Andhra1.avif" },
+    { name: "B.A. (History, Economics, Politics)", duration: "3 Years", image: "/thumbnails/Andhra/Andhra2.avif" },
     
-    { name: "M.A. English", duration: "2 Years", image: "/thumbnails/andhra/andhra4.avif" },
-    { name: "M.Com", duration: "2 Years", image: "/thumbnails/andhra/andhra5.avif" },
-    { name: "MBA (Executive & Regular)", duration: "2–3 Years", image: "/thumbnails/andhra/andhra6.avif" },
-    { name: "MCA", duration: "2 Years", image: "/thumbnails/andhra/andhra3.avif" },
+    { name: "M.A. English", duration: "2 Years", image: "/thumbnails/Andhra/Andhra4.avif" },
+    { name: "M.Com", duration: "2 Years", image: "/thumbnails/Andhra/Andhra5.avif" },
+    { name: "MBA (Executive & Regular)", duration: "2–3 Years", image: "/thumbnails/Andhra/Andhra6.avif" },
+    { name: "MCA", duration: "2 Years", image: "/thumbnails/Andhra/Andhra3.avif" },
     
   ],
   gallery: [

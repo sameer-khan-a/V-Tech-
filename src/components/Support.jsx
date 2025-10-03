@@ -12,7 +12,7 @@ const activityData = [
     images: [
       {
         id: "workshop1",
-        src: "/Support/Workshop1.jpg",
+        src: "/Support/Workshop1.JPG",
         alt: "Workshop on Java Full Stack Development, covering web development from scratch to advanced topics",
       },
       {
@@ -68,7 +68,7 @@ const activityData = [
       },
       {
         id: "counselling2",
-        src: "/Support/Counselling2.jpg",
+        src: "/Support/Counselling2.JPG",
         alt: "Industry expert guiding a student on career paths and job acquisition strategies",
       },
     ],
@@ -130,7 +130,7 @@ const Support = () => {
       <section
         className="support_hero"
         style={{
-          backgroundImage: "url(/support/Counselling2.jpg)",
+          backgroundImage: "url(/support/Counselling2.JPG)",
           backgroundPosition: "center 35%",
         }}
       >
@@ -204,7 +204,7 @@ const Support = () => {
       {/* CTA Section */}
       <section
         className="support_cta"
-        style={{ backgroundImage: "url(/Support/Workshop1.jpg)" }}
+        style={{ backgroundImage: "url(/Support/Workshop1.JPG)" }}
       >
         <div className="support_cta_overlay"></div>
         <div className="support_cta_content" data-aos="zoom-in">

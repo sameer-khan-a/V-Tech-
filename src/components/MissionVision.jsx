@@ -46,17 +46,7 @@ const MissionVision = () => {
       {/* Banner Image with Logo */}
       <div className="mv-image-wrapper w-100 text-center">
         <div className="position-relative">
-// safer public path (CRA)
-<img
-  src={`${process.env.PUBLIC_URL || ''}/VisionMission.jpg`}
-  alt="Students"
-  className="mv-image"
-  style={{ marginBottom: '2rem' }} // fix huge margin
-  onError={(e) => {
-    console.error('Image failed to load:', e.currentTarget.src);
-    e.currentTarget.src = `${process.env.PUBLIC_URL || ''}/fallback.jpg`;
-  }}
-/>
+          <img src="/VisionMission.JPG" alt="Students" className="mv-image" style={{marginBottom: "500px"}} />
           <img src="/logo.png" alt="V Tech Logo" className="position-absolute" style={{ bottom: '10px', left: '10px', height: '50px' }} />
         </div>
       </div>

@@ -74,7 +74,7 @@ const techCourses = [
   },
   {
     title: 'MERN Full Stack',
-    image: '/Courses/MERN.png',
+    image: '/Courses/Mern.png',
     level: 'Advanced',
     duration: '90 hours',
     type: 'Paid',

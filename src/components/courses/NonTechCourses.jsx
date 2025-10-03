@@ -24,7 +24,7 @@ const nonTechCourses = [
   },
   {
     title: 'GST Simulation',
-    image: '/Courses/NonTech/Gst.png',
+    image: '/Courses/NonTech/GST.png',
     level: 'Intermediate',
     duration: '15 hours',
     type: 'Paid',
@@ -64,7 +64,7 @@ const nonTechCourses = [
   },
   {
     title: 'AWS DevOps',
-    image: '/Courses/NonTech/AWS.png',
+    image: '/Courses/NonTech/aws.png',
     level: 'Advanced',
     duration: '90 hours',
     type: 'Paid',
