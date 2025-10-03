@@ -56,7 +56,18 @@ const MissionVision = () => {
         {/* About Us */}
         <div className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center" style={{ backgroundColor: '#f0b5df' }}>
           <div className="p-4" style={{ maxWidth: '700px' }}>
-            <img src="/logo.png" alt="V Tech Logo" style={{ height: '50px' }} />
+            // safer public path (CRA)
+<img
+  src={`${process.env.PUBLIC_URL || ''}/VisionMission.jpg`}
+  alt="Students"
+  className="mv-image"
+  style={{ marginBottom: '2rem' }} // fix huge margin
+  onError={(e) => {
+    console.error('Image failed to load:', e.currentTarget.src);
+    e.currentTarget.src = `${process.env.PUBLIC_URL || ''}/fallback.jpg`;
+  }}
+/>
+
             <h2 className="fw-bold mb-3" style={{ color: '#8c5278' }}>About Us</h2>
             <p className="lead" style={{ color: '#5c5c5c' }}>
               V Tech Solutions is one of the most innovative education institutions focused on empowering students
