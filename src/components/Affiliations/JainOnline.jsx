@@ -9,12 +9,12 @@ const JainInstitue = {
   description:
     "JAIN Online, the digital arm of Jain University (NAAC A++), offers UGC‑entitled online degree programs—UG, PG, diplomas and certificates—designed for working professionals and remote learners.",
   courses: [
-    { name: "BBA (online)", duration: "3 Years", image: "/thumbnails/Jain/Jain.avif" },
-    { name: "B.Com (online)", duration: "3 Years", image: "/thumbnails/Jain/Jain1.avif" },
-    { name: "BCA (online)", duration: "3 Years", image: "/thumbnails/Jain/Jain2.avif" },
-    { name: "MBA (online)", duration: "2 Years", image: "/thumbnails/Jain/Jain3.avif" },
-    { name: "MCA (online)", duration: "2 Years", image: "/thumbnails/Jain/Jain4.avif" },
-    { name: "M.Com (online)", duration: "2 Years", image: "/thumbnails/Jain/Jain5.avif" }
+    { name: "BBA (online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal.avif" },
+    { name: "B.Com (online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal1.avif" },
+    { name: "BCA (online)", duration: "3 Years", image: "/thumbnails/Uttaranchal/Uttaranchal2.avif" },
+    { name: "MBA (online)", duration: "2 Years", image: "/thumbnails/Uttaranchal/Uttaranchal3.avif" },
+    { name: "MCA (online)", duration: "2 Years", image: "/thumbnails/Uttaranchal/Uttaranchal4.avif" },
+    { name: "M.Com (online)", duration: "2 Years", image: "/thumbnails/Uttaranchal/Uttaranchal5.avif" }
   ],
   gallery: [
     "https://source.unsplash.com/400x250/?online,classroom",
