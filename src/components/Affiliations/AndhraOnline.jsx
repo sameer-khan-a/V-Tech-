@@ -13,10 +13,10 @@ const AndhraInstitute = {
     { name: "B.Com (Accountancy)", duration: "3 Years", image: "/thumbnails/Andhra/Andhra1.avif" },
     { name: "B.A. (History, Economics, Politics)", duration: "3 Years", image: "/thumbnails/Andhra/Andhra2.avif" },
     
-    { name: "M.A. English", duration: "2 Years", image: "/thumbnails/Andhra/Andhra4.avif" },
-    { name: "M.Com", duration: "2 Years", image: "/thumbnails/Andhra/Andhra5.avif" },
-    { name: "MBA (Executive & Regular)", duration: "2–3 Years", image: "/thumbnails/Andhra/Andhra6.avif" },
-    { name: "MCA", duration: "2 Years", image: "/thumbnails/Andhra/Andhra3.avif" },
+    { name: "M.A. English", duration: "2 Years", image: "/thumbnails/Andhra/Andhra3.avif" },
+    { name: "M.Com", duration: "2 Years", image: "/thumbnails/Andhra/Andhra4.avif" },
+    { name: "MBA (Executive & Regular)", duration: "2–3 Years", image: "/thumbnails/Andhra/Andhra5.avif" },
+    { name: "MCA", duration: "2 Years", image: "/thumbnails/Andhra/Andhra6.avif" },
     
   ],
   gallery: [
