@@ -24,24 +24,9 @@ const MissionVision = () => {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
-  const audioRef = useRef(new Audio('/sounds/click.wav')); // <-- Add your sound file in public folder
 
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0; // reset sound
-      audioRef.current.play().catch(() => {}); // avoid errors if autoplay is blocked
-    }
-  };
-
-  const nextSlide = () => {
-    playSound();
-    setIndex((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    playSound();
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = () => setIndex((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   const resetTimer = () => {
     clearInterval(timerRef.current);
@@ -57,11 +42,11 @@ const MissionVision = () => {
   }, [paused]);
 
   return (
-    <section className="mission-vision-section container-fluid px-0 w-100" style={{ padding: '4rem 0' }}>
+    <section className="mission-vision-section container-fluid px-0 w-100 " style={{ padding: '4rem 0' }}>
       {/* Banner Image with Logo */}
       <div className="mv-image-wrapper w-100 text-center">
         <div className="position-relative">
-          <img src="/VisionMission.jpg" alt="Students" className="mv-image" />
+          <img src="/VisionMission.jpg" alt="Students" className="mv-image" style={{marginBottom: "500px"}} />
           <img src="/logo.png" alt="V Tech Logo" className="position-absolute" style={{ bottom: '10px', left: '10px', height: '50px' }} />
         </div>
       </div>
@@ -82,7 +67,7 @@ const MissionVision = () => {
           </div>
         </div>
 
-        {/* Mission / Vision Slider */}
+        {/* Mission / Vision / Goal Slider */}
         <div
           className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center"
           style={{ backgroundColor: '#f1df91' }}

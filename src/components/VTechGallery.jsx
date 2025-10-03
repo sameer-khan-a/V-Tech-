@@ -20,19 +20,6 @@ const VTechGallery = () => {
   const galleryRef = useRef(null);
   const campusRef = useRef(null);
 
-  // Setup click sound
-  const clickSound = useRef(null);
-  useEffect(() => {
-    clickSound.current = new Audio('/sounds/click.wav'); // Place click.wav in /public/sounds
-    clickSound.current.volume = 0.5;
-  }, []);
-
-  const playClick = () => {
-    if (!clickSound.current) return;
-    clickSound.current.currentTime = 0;
-    clickSound.current.play();
-  };
-
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
@@ -60,20 +47,18 @@ const VTechGallery = () => {
           <div className="path-buttons mt-5" data-aos="fade-up">
             <button
               className="path-btn gallery-btn"
-              onClick={() => {
-                playClick();
-                galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
+              onClick={() =>
+                galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
             >
               📸 The Gallery
             </button>
 
             <button
               className="path-btn campus-btn"
-              onClick={() => {
-                playClick();
-                campusRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
+              onClick={() =>
+                campusRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
             >
               🏫 The Campus
             </button>
@@ -94,7 +79,6 @@ const VTechGallery = () => {
                 className="vtech-gallery-item"
                 data-aos="fade-up"
                 onClick={() => {
-                  playClick();
                   setSelected(img);
                   setLoading(true);
                 }}
@@ -125,7 +109,6 @@ const VTechGallery = () => {
                 className="vtech-gallery-item"
                 data-aos="fade-up"
                 onClick={() => {
-                  playClick();
                   setSelected(img);
                   setLoading(true);
                 }}
@@ -164,10 +147,7 @@ const VTechGallery = () => {
             <button
               className="vtech-close"
               aria-label="Close Gallery Preview"
-              onClick={() => {
-                playClick();
-                setSelected(null);
-              }}
+              onClick={() => setSelected(null)}
             >
               ✕
             </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../main.css';
@@ -9,31 +9,11 @@ const VtechCACS = () => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // ---- click sound ----
-  const clickSfx = useRef(null);
-  useEffect(() => {
-    clickSfx.current = new Audio('/sounds/click.wav'); // put file in /public/sounds
-    clickSfx.current.volume = 0.5;
-  }, []);
-  const playClick = () => {
-    if (!clickSfx.current) return;
-    clickSfx.current.currentTime = 0;
-    clickSfx.current.play();
-  };
-  // ---------------------
-
   const programs = [
     { title: "CA Foundation", desc: "Complete syllabus coverage, regular test series, and weekly concept clarity sessions.", img: "cacs/course1.png", bgClass: "bg-ca" },
     { title: "CS Executive", desc: "Law-focused learning with case studies and MCQ-based mocks.", img: "cacs/course2.png", bgClass: "bg-cs" },
     { title: "ACCA & CMA", desc: "Global certifications with structured mentoring, recorded sessions, and expert Q&A.", img: "cacs/course3.png", bgClass: "bg-acca" },
     { title: "Crash Courses", desc: "Focused revision plans, quick concept refreshers, and last-mile exam strategies.", img: "cacs/course4.png", bgClass: "bg-crash" }
-  ];
-
-  const csHighlights = [
-    { title: "Executive | CSEET", desc: "Timely syllabus wrap-up and mock practice ensure focused preparation.", img: "/cacs/cseet.png" },
-    { title: "Guidance", desc: "Law interpretation + answer writing skill coaching by experts.", img: "/cacs/guiding.png" },
-    { title: "Success Rate", desc: "Achieving 80%+ clearance rate across multiple attempts consistently.", img: "/cacs/success.png" },
-    { title: "Personal Mentorship", desc: "Regular check-ins, progress tracking, and motivational sessions with mentors.", img: "/cacs/mentor.png" },
   ];
 
   return (
@@ -65,16 +45,16 @@ const VtechCACS = () => {
           </h1>
           <p className="lead mb-4">Explore the journey of future professionals</p>
           <div className="d-flex flex-wrap justify-content-center gap-3">
-            <a href="#info-1" className="btn btn-outline-light rounded-pill px-4 py-2" onClick={playClick}>
+            <a href="#info-1" className="btn btn-outline-light rounded-pill px-4 py-2">
               Programs & Courses
             </a>
-            <a href="#info-2" className="btn btn-outline-light rounded-pill px-4 py-2" onClick={playClick}>
+            <a href="#info-2" className="btn btn-outline-light rounded-pill px-4 py-2">
               Core Faculty & Info
             </a>
-            <a href="#achievers-1" className="btn btn-outline-light rounded-pill px-4 py-2" onClick={playClick}>
+            <a href="#achievers-1" className="btn btn-outline-light rounded-pill px-4 py-2">
               CA Achievements
             </a>
-            <a href="#achievers-2" className="btn btn-outline-light rounded-pill px-4 py-2" onClick={playClick}>
+            <a href="#achievers-2" className="btn btn-outline-light rounded-pill px-4 py-2">
               CS Achievements
             </a>
           </div>
@@ -170,76 +150,50 @@ const VtechCACS = () => {
         </div>
       </section>
 
-<section
-  id="achievers-2"
-  className="text-white d-flex flex-column justify-content-center align-items-center px-3 py-5"
-  style={{ minHeight: "100vh" }}
->
-  <h2
-    className="display-4 fw-bold text-warning mb-5 text-center"
-    data-aos="fade-down"
-  >
-    🌟 CS Achievers
-  </h2>
-
-  <div className="container">
-    <div className="row g-4">
-      {[
-        {
-          title: "Executive | CSEET",
-          desc: "Timely syllabus wrap-up and mock practice ensure focused preparation.",
-          img: "/cacs/Rank.png",
-          className: "achiever-img-1",
-        },
-        {
-          title: "Guidance",
-          desc: "Law interpretation + answer writing skill coaching by experts.",
-          img: "/cacs/Rank.png",
-          className: "achiever-img-2",
-        },
-        {
-          title: "Success Rate",
-          desc: "Achieving 80%+ clearance rate across multiple attempts consistently.",
-          img: "/cacs/rank.png",
-          className: "achiever-img-3",
-        },
-        {
-          title: "Personal Mentorship",
-          desc: "Regular check-ins, progress tracking, and motivational sessions with mentors.",
-          img: "/cacs/rank.png",
-          className: "achiever-img-4",
-        },
-      ].map((card, idx) => (
+      {/* CS ACHIEVERS */}
+      <section id="achievers-2" className="cs-achievers-section relative py-12 px-6 md:px-16 overflow-hidden">
         <div
-          key={idx}
-          className={`col-md-6 d-flex ${
-            idx % 2 === 0 ? "flex-row" : "flex-row-reverse"
-          }`}
-          data-aos="fade-up"
-        >
-          <div
-            className={`card achiever-image-card ${card.className} w-100 text-white`}
-            style={{
-              backgroundImage: `url('${card.img}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minHeight: "300px",
-            }}
-          >
-            <div className="card-body d-flex flex-column justify-content-end p-4 bg-dark bg-opacity-50">
-              <h5 className="card-title text-warning">{card.title}</h5>
-              <p className="card-text">{card.desc}</p>
-            </div>
+          className="absolute inset-0 bg-cover bg-center -z-10"
+          style={{
+            backgroundImage: "url('/cacs/cacs-bg.jpg')",
+            filter: "brightness(0.5)",
+          }}
+        />
+
+        <div className="container z-10 text-center" data-aos="fade-down">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 ">
+            🌟 CS Achievers: Nurturing Future Leaders
+          </h2>
+          <p className="text-base md:text-lg text-gray-100 max-w-2xl mx-auto leading-relaxed fs-5" style={{color: "black"}}>
+            From strong foundations to professional excellence, our achievers
+            embody discipline, mentorship, and results.
+          </p>
+        </div>
+
+        <div className="card flex flex-col md:flex-row items-center justify-center gap-8 border-0 mt-10" data-aos="fade-up">
+          <div className="hidden md:block md:w-1/2 h-[300px] bg-gray-200 rounded-xl shadow-lg"></div>
+          <div className="glass-block md:w-1/2 w-full p-6 rounded-xl shadow-lg bg-white/80 backdrop-blur">
+            <ul className="list-disc list-inside text-left text-base text-gray-900 space-y-6 leading-relaxed">
+              <li>
+                <div className="text-3xl mb-1">📘</div>
+                <strong className="text-lg block mb-1">Executive | CSEET:</strong>
+                Timely syllabus wrap-up and mock practice ensure focused preparation.
+              </li>
+              <li>
+                <div className="text-3xl mb-1">📊</div>
+                <strong className="text-lg block mb-1">Success Rate:</strong>
+                Achieving 80%+ clearance rate across multiple attempts consistently.
+              </li>
+              <li>
+                <div className="text-3xl mb-1">🤝</div>
+                <strong className="text-lg block mb-1">Personal Mentorship:</strong>
+                Regular check-ins, progress tracking, and motivational sessions
+                with mentors.
+              </li>
+            </ul>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-
-
+      </section>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar2 from './Navbar2';
@@ -6,24 +6,13 @@ import '../main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SuccessDetails = () => {
-  const clickSfx = useRef(null);
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       mirror: true,
     });
-    clickSfx.current = new Audio('/sounds/click.wav');
-    clickSfx.current.volume = 0.5;
   }, []);
-
-  const playClick = () => {
-    if (clickSfx.current) {
-      clickSfx.current.currentTime = 0;
-      clickSfx.current.play();
-    }
-  };
 
   const testimonials = [
     {
@@ -90,7 +79,6 @@ const SuccessDetails = () => {
                   !isEven ? 'flex-lg-row-reverse' : ''
                 }`}
                 data-aos={isEven ? 'fade-right' : 'fade-left'}
-                onClick={playClick}
               >
                 {/* Student Image */}
                 <div className="text-center flex-shrink-0">
@@ -136,7 +124,6 @@ const SuccessDetails = () => {
                       className="btn btn-outline-primary btn-sm"
                       target="_blank"
                       rel="noreferrer"
-                      onClick={playClick}
                     >
                       <i className="bi bi-linkedin me-1"></i> View LinkedIn
                     </a>

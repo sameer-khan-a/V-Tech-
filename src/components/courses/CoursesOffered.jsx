@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
@@ -7,26 +7,16 @@ import '../../main.css';
 import Navbar2 from '../Navbar2';
 
 const CoursesOffered = () => {
-  const clickSound = useRef(null);
-
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-    clickSound.current = new Audio('/sounds/click.wav');
   }, []);
-
-  const playClick = () => {
-    if (clickSound.current) {
-      clickSound.current.currentTime = 0;
-      clickSound.current.play().catch(() => {});
-    }
-  };
 
   return (
     <>
       <Navbar2 />
 
       {/* Hero Section */}
-      <div className="tech-hero animate__animated animate__fadeIn mt-4">
+      <div className="tech-hero animate__animated animate__fadeIn mt-5 pt-5">
         <div className="hero-overlay animate__animated animate__fadeInUp">
           <h1 className="animate__animated animate__fadeInDown" style={{ color: '#8c5278' }}>
             Courses Offered
@@ -45,13 +35,12 @@ const CoursesOffered = () => {
           Choose Your Track
         </h2>
 
-        <div className="d-flex flex-column flex-md-row justify-content-center align-items-center flex-wrap gap-4">
+        <div className="d-flex flex-column flex-md-row justify-content-center align-items-center h-100 mt-5 flex-wrap gap-4">
           <Link
             to="/TechCourses"
             className="course-home-card-link"
             data-aos="zoom-in-up"
             data-aos-delay="100"
-            onClick={playClick}
           >
             <div className="course-home-card">
               <video
@@ -73,7 +62,6 @@ const CoursesOffered = () => {
             className="course-home-card-link"
             data-aos="zoom-in-up"
             data-aos-delay="200"
-            onClick={playClick}
           >
             <div className="course-home-card">
               <video

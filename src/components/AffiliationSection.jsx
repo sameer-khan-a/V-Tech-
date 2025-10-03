@@ -2,8 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../main.css";
 
-const clickSound = new Audio("/sounds/click.wav"); // Preload the sound
-
 const partners = [
   {
     name: "Jain Online",
@@ -94,20 +92,13 @@ const AffiliationsSection = () => {
     return pauseTimer;
   }, []);
 
-  const playClick = () => {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  };
-
   const handleNext = () => {
-    playClick();
     pauseTimer();
     setIndex((prev) => (prev + 1) % partners.length);
     startTimer();
   };
 
   const handlePrev = () => {
-    playClick();
     pauseTimer();
     setIndex((prev) => (prev - 1 + partners.length) % partners.length);
     startTimer();

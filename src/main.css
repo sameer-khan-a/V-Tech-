@@ -680,7 +680,7 @@ background: #553249;
 #achievers-2 h2 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #facc15;
+  color: #8c5278;
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
@@ -712,8 +712,8 @@ background: #553249;
 }
 
 #achievers-2 .card-custom img {
-  height: 100%;
-  width: 100%;
+  height: 150%;
+  width: 150%;
   object-fit: cover;
 }
 
@@ -2965,7 +2965,7 @@ html {
 /* Smooth Dropdown Animation */
 /* ---------------- MISSION & VISION ---------------- */
 .mission-vision-section {
-  height: 100vh;
+  height: 130vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2975,19 +2975,20 @@ html {
 
 /* === Top Image Section === */
 .mv-image-wrapper {
-  height: 60vh;
+  height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-bottom: 5rem;
   margin: 0;
   padding: 0;
 }
 
 .mv-image-wrapper img.mv-image {
   width: 100%;
-  height: 150%;
+  height: 200%;
+  margin-bottom: 5rem;
   object-fit: cover;
-  object-position: top center;
   display: block;
 }
 
@@ -3005,7 +3006,7 @@ html {
 
 /* === Bottom Content Section === */
 .mv-content {
-  height: 50vh;
+  height: 20vh;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../main.css";
@@ -111,12 +111,9 @@ const activityData = [
 
 const Support = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const clickSfx = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
-    clickSfx.current = new Audio("/sounds/click.wav"); // Add your click.wav file inside /public/sounds
-    clickSfx.current.volume = 0.5;
 
     const handleEsc = (e) => {
       if (e.key === "Escape") setSelectedImage(null);
@@ -124,13 +121,6 @@ const Support = () => {
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
-
-  const playClick = () => {
-    if (clickSfx.current) {
-      clickSfx.current.currentTime = 0;
-      clickSfx.current.play();
-    }
-  };
 
   return (
     <div className="support_page">
@@ -187,10 +177,7 @@ const Support = () => {
                   className="support_image_card"
                   data-aos="fade-up"
                   data-aos-delay={i * 100}
-                  onClick={() => {
-                    playClick();
-                    setSelectedImage(activity);
-                  }}
+                  onClick={() => setSelectedImage(activity)}
                 >
                   <img
                     src={activity.src}
@@ -230,7 +217,6 @@ const Support = () => {
             href="/BookAppointment"
             className="support_cta_button"
             style={{ backgroundColor: "#8c5278" }}
-            onClick={playClick}
           >
             Join the Legacy
           </a>
@@ -241,10 +227,7 @@ const Support = () => {
       {selectedImage && (
         <div
           className="support_modal"
-          onClick={() => {
-            playClick();
-            setSelectedImage(null);
-          }}
+          onClick={() => setSelectedImage(null)}
         >
           <div
             className="support_modal_content"
@@ -253,10 +236,7 @@ const Support = () => {
           >
             <button
               className="support_modal_close"
-              onClick={() => {
-                playClick();
-                setSelectedImage(null);
-              }}
+              onClick={() => setSelectedImage(null)}
             >
               &times;
             </button>

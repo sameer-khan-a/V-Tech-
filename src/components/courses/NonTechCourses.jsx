@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
@@ -89,19 +89,9 @@ const nonTechCourses = [
 ];
 
 const NonTechCourses = () => {
-  const clickSound = useRef(null);
-
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-    clickSound.current = new Audio('/sounds/click.wav');
   }, []);
-
-  const playClick = () => {
-    if (clickSound.current) {
-      clickSound.current.currentTime = 0;
-      clickSound.current.play().catch(() => {});
-    }
-  };
 
   return (
     <>
@@ -133,7 +123,6 @@ const NonTechCourses = () => {
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`}
               key={index}
-              onClick={playClick}
             >
               <img src={course.image} alt={course.title} className="tech-thumb" />
               <div className="tech-overlay">
@@ -158,7 +147,7 @@ const NonTechCourses = () => {
           <p>
             Book a free counselling session with our experts to choose the right course for you.
           </p>
-          <a href="/BookAppointment" className="cta-button" onClick={playClick}>
+          <a href="/BookAppointment" className="cta-button">
             Book Free Counselling
           </a>
         </div>

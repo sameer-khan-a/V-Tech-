@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar2 from './Navbar2';
 import '../main.css';
 import AOS from 'aos';
@@ -17,32 +17,15 @@ const BookAppointment = () => {
     time: '',
   });
 
-  const notifAudioRef = useRef(null);
-
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, offset: 100 });
-
-    // Make sure the path & case are correct
-    notifAudioRef.current = new Audio('/sounds/Notification.mp3'); // <- rename file if needed
-    notifAudioRef.current.load();
   }, []);
-
-  const playNotificationSound = async () => {
-    try {
-      if (notifAudioRef.current) {
-        notifAudioRef.current.currentTime = 0;
-        await notifAudioRef.current.play();
-      }
-    } catch (err) {
-      console.warn('Audio play blocked or failed:', err);
-    }
-  };
 
   const handleChange = (e) => {
     setFormData((s) => ({ ...s, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const toastId = toast.loading('Sending your appointment...');
@@ -61,15 +44,13 @@ const BookAppointment = () => {
         },
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
-      .then(async () => {
+      .then(() => {
         toast.update(toastId, {
           render: '✅ Appointment booked and email sent!',
           type: 'success',
           isLoading: false,
           autoClose: 3000,
         });
-
-        await playNotificationSound(); // play here
 
         setFormData({
           name: '',

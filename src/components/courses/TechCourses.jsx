@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
-import '../../main.css'; // Make sure this has your styles
+import { Link } from 'react-router-dom';
+import '../../main.css';
 import Navbar2 from '../Navbar2';
 
 // Course data
@@ -13,6 +14,7 @@ const techCourses = [
     level: 'Beginner',
     duration: '60 hours',
     type: 'Paid',
+    link: '/courses/computer-basics',
   },
   {
     title: 'C Programming',
@@ -89,19 +91,9 @@ const techCourses = [
 ];
 
 const TechCourses = () => {
-  const clickSound = useRef(null);
-
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-    clickSound.current = new Audio('/sounds/click.wav');
   }, []);
-
-  const playClick = () => {
-    if (clickSound.current) {
-      clickSound.current.currentTime = 0;
-      clickSound.current.play().catch(() => {});
-    }
-  };
 
   return (
     <>
@@ -127,13 +119,12 @@ const TechCourses = () => {
 
         <div className="d-flex flex-column flex-md-row justify-content-center align-items-center flex-wrap gap-4">
           {techCourses.map((course, index) => (
-            <a
-              href={course.link}
+            <Link
+              to={course.link}
               className="tech-card"
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`}
               key={index}
-              onClick={playClick}
             >
               <img src={course.image} alt={course.title} className="tech-thumb" />
               <div className="tech-overlay">
@@ -146,7 +137,7 @@ const TechCourses = () => {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -158,9 +149,9 @@ const TechCourses = () => {
           <p>
             Book a free counselling session with our experts to choose the right course for you.
           </p>
-          <a href="/BookAppointment" className="cta-button" onClick={playClick}>
+          <Link to="/BookAppointment" className="cta-button">
             Book Free Counselling
-          </a>
+          </Link>
         </div>
       </section>
     </>

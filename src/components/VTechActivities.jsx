@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../main.css";
@@ -17,20 +17,6 @@ const activityImages = activityExtensions.map((ext, i) => ({
 
 const VTechActivities = () => {
   const [selected, setSelected] = useState(null);
-
-  // --- CLICK SOUND SETUP ---
-  const clickSfx = useRef(null);
-  useEffect(() => {
-    clickSfx.current = new Audio("/sounds/click.wav"); // Place file inside /public/sounds
-    clickSfx.current.volume = 0.5;
-  }, []);
-
-  const playClick = () => {
-    if (!clickSfx.current) return;
-    clickSfx.current.currentTime = 0;
-    clickSfx.current.play();
-  };
-  // -------------------------
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -68,10 +54,7 @@ const VTechActivities = () => {
               key={i}
               className="activity-card"
               data-aos="fade-up"
-              onClick={() => {
-                playClick();
-                setSelected(activity);
-              }}
+              onClick={() => setSelected(activity)}
             >
               <img src={activity.src} alt={activity.alt} loading="lazy" />
               <div className="activity-card-content">
@@ -97,12 +80,7 @@ const VTechActivities = () => {
             From tech talks to talent nights—our events shape leaders and leave
             memories. Join us now!
           </p>
-          <a
-            href="/BookAppointment"
-            onClick={playClick}
-          >
-            Join the Legacy
-          </a>
+          <a href="/BookAppointment">Join the Legacy</a>
         </div>
       </section>
 
@@ -112,7 +90,6 @@ const VTechActivities = () => {
           className="activity-modal"
           onClick={(e) => {
             if (e.target.classList.contains("activity-modal")) {
-              playClick();
               setSelected(null);
             }
           }}
@@ -122,10 +99,7 @@ const VTechActivities = () => {
             <p className="zoom-caption">{selected.alt}</p>
             <button
               className="activity-close"
-              onClick={() => {
-                playClick();
-                setSelected(null);
-              }}
+              onClick={() => setSelected(null)}
             >
               ✕
             </button>

@@ -1,22 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../main.css';
 
 const Navbar2 = () => {
-  const clickSfx = useRef(null);
-
-  useEffect(() => {
-    clickSfx.current = new Audio('/sounds/click.wav'); // Add click.mp3 in public/sounds
-    clickSfx.current.volume = 0.5;
-  }, []);
-
-  const playClick = () => {
-    if (!clickSfx.current) return;
-    clickSfx.current.currentTime = 0;
-    clickSfx.current.play();
-  };
-
   return (
     <nav className="navbar navbar-expand-lg fixed-top shadow-sm py-2" id="custom-navbar">
       <div className="container-fluid px-3 px-lg-5">
@@ -25,7 +12,6 @@ const Navbar2 = () => {
           className="navbar-brand d-flex align-items-center gap-2 fw-bold"
           href="#"
           style={{ color: 'white ' }}
-          onClick={playClick}
         >
           <img
             src="/logo.png"
@@ -51,7 +37,6 @@ const Navbar2 = () => {
             color: 'white',
             border: '2px solid white',
           }}
-          onClick={playClick}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -61,22 +46,22 @@ const Navbar2 = () => {
           <ul className="navbar-nav align-items-lg-center w-100 justify-content-end">
             {/* Home Link */}
             <li className="nav-item">
-              <a className="nav-link" href="/" onClick={playClick}>Home</a>
+              <a className="nav-link" href="/">Home</a>
             </li>
 
             {/* Static Link */}
             <li className="nav-item">
-              <a className="nav-link" href="/Courses" onClick={playClick}>Remote Learning</a>
+              <a className="nav-link" href="/Courses">Remote Learning</a>
             </li>
 
             {/* Courses Link */}
             <li className="nav-item">
-              <a className="nav-link" href="/CoursesOffered" onClick={playClick}>Courses</a>
+              <a className="nav-link" href="/CoursesOffered">Courses</a>
             </li>
 
             {/* CA/CS Link */}
             <li className="nav-item">
-              <a className="nav-link" href="/VTechCACS" onClick={playClick}>CA/CS Coaching</a>
+              <a className="nav-link" href="/VTechCACS">CA/CS Coaching</a>
             </li>
 
             {/* Events Dropdown */}
@@ -88,13 +73,12 @@ const Navbar2 = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                onClick={playClick}
               >
                 Events
               </a>
               <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
-                <li><a className="dropdown-item" href="/VTechActivities" onClick={playClick}>Activities</a></li>
-                <li><a className="dropdown-item" href="/VTechGallery" onClick={playClick}>Gallery</a></li>
+                <li><a className="dropdown-item" href="/VTechActivities">Activities</a></li>
+                <li><a className="dropdown-item" href="/VTechGallery">Gallery</a></li>
               </ul>
             </li>
 
@@ -107,14 +91,13 @@ const Navbar2 = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                onClick={playClick}
               >
                 Placements
               </a>
               <ul className="dropdown-menu" aria-labelledby="placementDropdown">
-                <li><a className="dropdown-item" href="/HiringDetails" onClick={playClick}>Hiring Partners</a></li>
-                <li><a className="dropdown-item" href="/SuccessDetails" onClick={playClick}>Success Stories</a></li>
-                <li><a className="dropdown-item" href="/Support" onClick={playClick}>Our Support</a></li>
+                <li><a className="dropdown-item" href="/HiringDetails">Hiring Partners</a></li>
+                <li><a className="dropdown-item" href="/SuccessDetails">Success Stories</a></li>
+                <li><a className="dropdown-item" href="/Support">Our Support</a></li>
               </ul>
             </li>
           </ul>

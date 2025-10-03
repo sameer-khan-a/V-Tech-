@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import '../main.css';
 
 const partnerLogos = [
@@ -19,20 +19,6 @@ const partnerLogos = [
 const logos = [...partnerLogos, ...partnerLogos]; // loop for infinite scroll
 
 const PlacementSection = () => {
-  const clickSfx = useRef(null);
-
-  useEffect(() => {
-    clickSfx.current = new Audio('/sounds/click.wav');
-    clickSfx.current.volume = 0.5;
-  }, []);
-
-  const playClick = () => {
-    if (clickSfx.current) {
-      clickSfx.current.currentTime = 0;
-      clickSfx.current.play();
-    }
-  };
-
   return (
     <div
       id="placement"
@@ -93,7 +79,6 @@ const PlacementSection = () => {
                 color: 'white',
                 transition: 'background-color 0.3s ease',
               }}
-              onClick={playClick}
               onMouseOver={(e) => (e.target.style.backgroundColor = '#6e3f5f')}
               onMouseOut={(e) => (e.target.style.backgroundColor = '#8c5278')}
             >

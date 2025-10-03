@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../main.css';
@@ -68,27 +68,13 @@ const hiringPartners = [
 ];
 
 const HiringDetails = () => {
-  const audioRef = useRef(null);
-
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
-
-    // Play sound when AOS triggers
-    const handleAOSAnimation = () => {
-      if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(() => {});
-      }
-    };
-
-    document.addEventListener('aos:in', handleAOSAnimation);
-    return () => document.removeEventListener('aos:in', handleAOSAnimation);
   }, []);
 
   return (
     <>
       <Navbar2 />
-      <audio ref={audioRef} src="/sounds/click.wav" preload="auto"></audio>
 
       {/* Hero Section */}
       <section className="hero-section text-white text-center d-flex align-items-center" data-aos="fade-down">
@@ -102,10 +88,6 @@ const HiringDetails = () => {
             onClick={() => {
               const section = document.getElementById('hiring-partners');
               if (section) section.scrollIntoView({ behavior: 'smooth' });
-              if (audioRef.current) {
-                audioRef.current.currentTime = 0;
-                audioRef.current.play();
-              }
             }}
           >
             Meet Our Partners

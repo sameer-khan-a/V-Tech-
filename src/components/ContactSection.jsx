@@ -1,22 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContactSection = () => {
   const [showMap, setShowMap] = useState(false);
-  const audioRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowMap(true), 300);
     return () => clearTimeout(timer);
   }, []);
-
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
-    }
-  };
 
   return (
     <section
@@ -24,8 +16,6 @@ const ContactSection = () => {
       id="contact"
       style={{ height: '100dvh', width: '100vw', margin: 0, padding: 0 }}
     >
-      <audio ref={audioRef} src="/sounds/click.wav" preload="auto"></audio>
-
       {/* Background Video */}
       <video
         onLoadedData={(e) => (e.target.style.opacity = '1')}
@@ -49,16 +39,12 @@ const ContactSection = () => {
       {/* Dark Overlay */}
       <div
         className="position-absolute w-100 h-100"
-        style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          zIndex: '-1',
-        }}
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', zIndex: '-1' }}
       ></div>
 
       {/* Content */}
       <div className="container-fluid h-100 d-flex flex-column justify-content-center align-items-center text-center text-lg-start px-3 px-lg-5">
         <div className="row w-100 align-items-center">
-
           {/* Map */}
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="ratio ratio-4x3">
@@ -107,14 +93,18 @@ const ContactSection = () => {
 
               <div className="mb-3">
                 <p className="fw-bold mb-1" style={{ color: 'rgb(245, 146, 210)' }}>Email</p>
-                <p><a href="mailto:vtech.tumkur12@gmail.com" className="text-white text-decoration-none" onClick={playSound}>vtech.tumkur12@gmail.com</a></p>
+                <p>
+                  <a href="mailto:vtech.tumkur12@gmail.com" className="text-white text-decoration-none">
+                    vtech.tumkur12@gmail.com
+                  </a>
+                </p>
               </div>
 
               <div className="mb-3">
                 <p className="fw-bold mb-1" style={{ color: 'rgb(255, 150, 218)' }}>Phone</p>
                 <p>
-                  <a href="tel:+919742396245" className="text-white text-decoration-none" onClick={playSound}>+91 97423 96245</a><br />
-                  <a href="tel:+917022901241" className="text-white text-decoration-none" onClick={playSound}>+91 70229 01241</a>
+                  <a href="tel:+919742396245" className="text-white text-decoration-none">+91 97423 96245</a><br />
+                  <a href="tel:+917022901241" className="text-white text-decoration-none">+91 70229 01241</a>
                 </p>
               </div>
 
@@ -122,7 +112,6 @@ const ContactSection = () => {
                 href="/BookAppointment"
                 className="btn px-4 mt-3 contact-btn"
                 style={{ background: '#8c5278', color: 'white' }}
-                onClick={playSound}
               >
                 Book a Consultation
               </a>
@@ -142,7 +131,6 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     aria-label={icon}
                     className="text-decoration-none"
-                    onClick={playSound}
                   >
                     <i className={`bi ${icon}`} style={{ color: '#f592d2' }}></i>
                   </a>
@@ -150,6 +138,7 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
