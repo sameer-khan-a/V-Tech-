@@ -46,17 +46,7 @@ const MissionVision = () => {
       {/* Banner Image with Logo */}
       <div className="mv-image-wrapper w-100 text-center">
         <div className="position-relative">
-          <img src="/VisionMission.jpg" alt="Students" className="mv-image" style={{marginBottom: "500px"}} />
-          <img src="/logo.png" alt="V Tech Logo" className="position-absolute" style={{ bottom: '10px', left: '10px', height: '50px' }} />
-        </div>
-      </div>
-
-      {/* Content Grid */}
-      <div className="row w-100 m-0">
-        {/* About Us */}
-        <div className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center" style={{ backgroundColor: '#f0b5df' }}>
-          <div className="p-4" style={{ maxWidth: '700px' }}>
-            // safer public path (CRA)
+// safer public path (CRA)
 <img
   src={`${process.env.PUBLIC_URL || ''}/VisionMission.jpg`}
   alt="Students"
@@ -67,7 +57,16 @@ const MissionVision = () => {
     e.currentTarget.src = `${process.env.PUBLIC_URL || ''}/fallback.jpg`;
   }}
 />
+          <img src="/logo.png" alt="V Tech Logo" className="position-absolute" style={{ bottom: '10px', left: '10px', height: '50px' }} />
+        </div>
+      </div>
 
+      {/* Content Grid */}
+      <div className="row w-100 m-0">
+        {/* About Us */}
+        <div className="col-12 col-md-6 d-flex align-items-center justify-content-center text-center" style={{ backgroundColor: '#f0b5df' }}>
+          <div className="p-4" style={{ maxWidth: '700px' }}>
+            <img src="/logo.png" alt="V Tech Logo" style={{ height: '50px' }} />
             <h2 className="fw-bold mb-3" style={{ color: '#8c5278' }}>About Us</h2>
             <p className="lead" style={{ color: '#5c5c5c' }}>
               V Tech Solutions is one of the most innovative education institutions focused on empowering students
