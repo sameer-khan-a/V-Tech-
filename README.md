@@ -63,5 +63,4 @@ Backend: *not applicable / currently no separate host required*.
 ## 🙋‍♂️ Contact / Author  
 Sameer Khan — MERN-/AI-ML-curious dev & training enthusiast  
 - GitHub: [sameer-khan-a](https://github.com/sameer-khan-a)  
-- (Add LinkedIn / Email / Portfolio if you want)
 
