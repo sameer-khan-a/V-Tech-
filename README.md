@@ -60,11 +60,12 @@ Testing is *not yet* configured. Plans: add unit / UI tests once logic grows.
 Frontend hosted on Vercel.  
 Backend: *not applicable / currently no separate host required*.  
 
-## 🖼️ Snapshots / Preview  
+## 📸 Snapshots / Preview
+
 ![V-Tech Screenshot 1](./public/v tech (1).png)  
 ![V-Tech Screenshot 2](./public/v tech (2).png)  
 ![V-Tech Screenshot 3](./public/v tech (3).png)  
-![V-Tech Screenshot 4](./public/v tech (4).png)  
+![V-Tech Screenshot 4](./public/v tech (4).png)
 
 ## 🙋‍♂️ Contact / Author  
 Sameer Khan — MERN-/AI-ML-curious dev & training enthusiast  
