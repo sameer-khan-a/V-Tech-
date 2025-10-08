@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# V-Tech  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Computer-Science & CA/CS training centre platform by Sameer Khan — designed for booking appointments, sharing course info, and managing learning resources.
 
-## Available Scripts
+## 🚀 What is V-Tech  
+V-Tech is a fully client-side web app built in React + Bootstrap.  
+It serves as a training-centre portal where students can explore courses, book appointments (via EmailJS), and find resources.  
+Responsive, modern, and creative UI with zero server dependencies (no backend, no login/auth yet).
 
-In the project directory, you can run:
+## 🧰 Tech Stack  
+- **Frontend:** React  
+- **Styling / UI components:** Bootstrap (plus custom styling as needed)  
+- **Routing:** React Router (normal client routes via App.js)  
+- **Email / Forms:** EmailJS for appointment-booking/contact forms  
+- **Deployment:** Vercel  
+- **Backend / API:** — none currently (static + client-logic architecture)  
 
-### `npm start`
+## 🛠️ Setup & Run Locally  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone https://github.com/sameer-khan-a/V-Tech-.git
+cd V-Tech-
+npm install
+npm run dev    # or npm start depending on your setup
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧭 Project Structure  (example / your layout might vary)
 
-### `npm test`
+```
+/public           → static assets, index.html  
+/src              → React source code  
+  /components     → UI components  
+  /pages          → page-level components / routes  
+  /utils          → helper functions (if any)  
+  App.js / index.js  
+package.json  
+README.md  
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✅ Features  
+- Fully responsive UI (mobile → desktop)  
+- Course info pages / sections  
+- Appointment booking via contact form using EmailJS  
+- Clean component design / modern interactive UI  
+- Easily extensible for future features (auth, backend, etc.)
 
-### `npm run build`
+## 🚧 Roadmap / To-Do  
+- Add user authentication & authorization (if needed)  
+- If backend becomes necessary: set up Node.js + Express + MongoDB  
+- Role-based flows / admin dashboards (for course / appointment management)  
+- Add analytics / usage tracking (optional)  
+- Improve SEO / metadata / social sharing cards  
+- Write unit / integration tests (if you start adding logic or backend)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧪 Testing  
+Testing is *not yet* configured. Plans: add unit / UI tests once logic grows.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📦 Deployment  
+**Live preview / demo:** https://v-tech-lake.vercel.app  
+Frontend hosted on Vercel.  
+Backend: *not applicable / currently no separate host required*.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🙋‍♂️ Contact / Author  
+Sameer Khan — MERN-/AI-ML-curious dev & training enthusiast  
+- GitHub: [sameer-khan-a](https://github.com/sameer-khan-a)  
+- (Add LinkedIn / Email / Portfolio if you want)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
