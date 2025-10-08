@@ -42,7 +42,7 @@ README.md
 - Course info pages / sections  
 - Appointment booking via contact form using EmailJS  
 - Clean component design / modern interactive UI  
-- Easily extensible for future features (auth, backend, etc.)
+- Easily extensible for future features (auth, backend, etc.)  
 
 ## 🚧 Roadmap / To-Do  
 - Add user authentication & authorization (if needed)  
@@ -53,14 +53,20 @@ README.md
 - Write unit / integration tests (if you start adding logic or backend)  
 
 ## 🧪 Testing  
-Testing is *not yet* configured. Plans: add unit / UI tests once logic grows.
+Testing is *not yet* configured. Plans: add unit / UI tests once logic grows.  
 
 ## 📦 Deployment  
 **Live preview / demo:** https://v-tech-lake.vercel.app  
 Frontend hosted on Vercel.  
-Backend: *not applicable / currently no separate host required*.
+Backend: *not applicable / currently no separate host required*.  
+
+## 🖼️ Snapshots / Preview  
+![V-Tech Screenshot 1](public/v tech (1).png)  
+![V-Tech Screenshot 2](public/v tech (2).png)  
+![V-Tech Screenshot 3](public/v tech (3).png)  
+![V-Tech Screenshot 4](public/v tech (4).png)  
 
 ## 🙋‍♂️ Contact / Author  
 Sameer Khan — MERN-/AI-ML-curious dev & training enthusiast  
 - GitHub: [sameer-khan-a](https://github.com/sameer-khan-a)  
-
+- (Add LinkedIn / Email / Portfolio if you want)
