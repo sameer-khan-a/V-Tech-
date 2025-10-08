@@ -62,7 +62,7 @@ Backend: *not applicable / currently no separate host required*.
 
 ## 📸 Snapshots / Preview
 
-![V-Tech Screenshot 1](./public/vtech1.png)  
+![V-Tech Screenshot 1](./public/vtechA.png)  
 ![V-Tech Screenshot 2](./public/vtech2.png)  
 ![V-Tech Screenshot 3](./public/vtech3.png)  
 ![V-Tech Screenshot 4](./public/vtech4.png)
