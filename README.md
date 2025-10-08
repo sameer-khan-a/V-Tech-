@@ -47,10 +47,7 @@ README.md
 ## 🚧 Roadmap / To-Do  
 - Add user authentication & authorization (if needed)  
 - If backend becomes necessary: set up Node.js + Express + MongoDB  
-- Role-based flows / admin dashboards (for course / appointment management)  
-- Add analytics / usage tracking (optional)  
-- Improve SEO / metadata / social sharing cards  
-- Write unit / integration tests (if you start adding logic or backend)  
+- Role-based flows / admin dashboards (for course / appointment management)   
 
 ## 🧪 Testing  
 Testing is *not yet* configured. Plans: add unit / UI tests once logic grows.  
