@@ -1,6 +1,6 @@
 # V-Tech
 
-> A modern training institute website for exploring courses, booking appointments, and accessing educational information through a responsive web experience.
+> A modern training institute platform for exploring courses, booking appointments, and connecting students with quality technical education.
 
 <p align="center">
   <img src="./public/vtechA.png" alt="V-Tech Hero">
@@ -10,22 +10,22 @@
 
 ## 🏛️ Overview
 
-V-Tech is a responsive web platform developed for a Computer Science and CA/CS training institute. Built using **React**, the application enables prospective students to explore available courses, learn about the institute, and book appointments through an integrated contact system.
+V-Tech is a responsive web application developed for a Computer Science and CA/CS training institute. Built with **React**, the platform enables prospective students to explore courses, learn about the institute, and schedule appointments through an integrated contact system.
 
-Designed as a lightweight frontend application, the platform delivers a modern user experience without requiring a backend, making it fast, scalable, and easy to maintain.
+Designed as a lightweight client-side application, V-Tech delivers a fast and engaging experience without requiring a backend server. The project focuses on accessibility, simplicity, and an intuitive interface while providing a strong foundation for future expansion.
 
 ---
 
 ## ✨ Highlights
 
 - 📚 Explore training programs and courses
-- 📅 Book appointments using EmailJS
-- 🏫 Learn about the institute and faculty
+- 📅 Book appointments through EmailJS
+- 🏫 Learn about the institute and its offerings
 - 📞 Contact and enquiry forms
-- 🎨 Modern responsive user interface
-- ⚡ Fast client-side application
-- 📱 Mobile-friendly design
-- 🚀 Deployed on Vercel
+- 🎨 Modern and interactive user interface
+- ⚡ Fast client-side architecture
+- 📱 Fully responsive design
+- 🚀 Live deployment on Vercel
 - 🧩 Component-based React architecture
 
 ---
@@ -98,27 +98,27 @@ npm start
 
 ---
 
-## 📸 Screenshots
+## 📸 Website Snapshots
 
-### 🏠 Home
+### 📷 Snapshot 1
 
 ![](./public/vtechA.png)
 
 ---
 
-### 📚 Courses
+### 📷 Snapshot 2
 
 ![](./public/vtech2.png)
 
 ---
 
-### 📅 Appointment Booking
+### 📷 Snapshot 3
 
 ![](./public/vtech3.png)
 
 ---
 
-### 📞 Contact
+### 📷 Snapshot 4
 
 ![](./public/vtech4.png)
 
@@ -134,18 +134,18 @@ npm start
 - [x] Live deployment
 - [ ] Student authentication
 - [ ] Admin dashboard
-- [ ] Course management system
-- [ ] Backend integration
+- [ ] Course management
 - [ ] Online admissions
 - [ ] Student portal
+- [ ] Backend integration
 
 ---
 
 ## 💡 Why V-Tech?
 
-V-Tech was developed to provide a modern online presence for a training institute by simplifying how prospective students discover courses and connect with the institute.
+V-Tech was developed to provide a modern digital presence for a technical training institute by simplifying how students discover courses and connect with the organization.
 
-Instead of relying on a traditional static website, the platform leverages React to deliver a responsive and interactive experience while integrating EmailJS for seamless appointment scheduling without requiring a backend server.
+Rather than relying on a traditional static website, the platform leverages React to deliver a responsive and interactive experience while integrating EmailJS to streamline appointment booking without requiring a dedicated backend.
 
 ---
 
