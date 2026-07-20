@@ -132,9 +132,7 @@ npm start
 - [x] Contact forms
 - [x] Modern React interface
 - [x] Live deployment
-- [ ] Student authentication
 - [ ] Admin dashboard
-- [ ] Course management
 - [ ] Online admissions
 - [ ] Student portal
 - [ ] Backend integration
