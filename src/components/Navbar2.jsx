@@ -7,11 +7,10 @@ const Navbar2 = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top shadow-sm py-2" id="custom-navbar">
       <div className="container-fluid px-3 px-lg-5">
-        {/* Brand */}
         <a
           className="navbar-brand d-flex align-items-center gap-2 fw-bold"
-          href="#"
-          style={{ color: 'white ' }}
+          href="/"
+          style={{ color: 'white' }}
         >
           <img
             src="/logo.png"
@@ -23,7 +22,6 @@ const Navbar2 = () => {
           V TECH SOLUTIONS
         </a>
 
-        {/* Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -33,7 +31,6 @@ const Navbar2 = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           style={{
-            background: '#rgba(230, 199, 219, 1) !important',
             color: 'white',
             border: '2px solid white',
           }}
@@ -41,65 +38,60 @@ const Navbar2 = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Links */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav align-items-lg-center w-100 justify-content-end">
-            {/* Home Link */}
+
             <li className="nav-item">
               <a className="nav-link" href="/">Home</a>
             </li>
 
-            {/* Static Link */}
             <li className="nav-item">
               <a className="nav-link" href="/Courses">Remote Learning</a>
             </li>
 
-            {/* Courses Link */}
             <li className="nav-item">
               <a className="nav-link" href="/CoursesOffered">Courses</a>
             </li>
 
-            {/* CA/CS Link */}
             <li className="nav-item">
               <a className="nav-link" href="/VTechCACS">CA/CS Coaching</a>
             </li>
 
-            {/* Events Dropdown */}
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
+              <button
+                className="nav-link dropdown-toggle btn btn-link border-0 text-decoration-none"
                 id="eventsDropdown"
-                role="button"
+                type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                style={{ color: 'inherit' }}
               >
                 Events
-              </a>
+              </button>
               <ul className="dropdown-menu" aria-labelledby="eventsDropdown">
                 <li><a className="dropdown-item" href="/VTechActivities">Activities</a></li>
                 <li><a className="dropdown-item" href="/VTechGallery">Gallery</a></li>
               </ul>
             </li>
 
-            {/* Placements Dropdown */}
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
+              <button
+                className="nav-link dropdown-toggle btn btn-link border-0 text-decoration-none"
                 id="placementDropdown"
-                role="button"
+                type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                style={{ color: 'inherit' }}
               >
                 Placements
-              </a>
+              </button>
               <ul className="dropdown-menu" aria-labelledby="placementDropdown">
                 <li><a className="dropdown-item" href="/HiringDetails">Hiring Partners</a></li>
                 <li><a className="dropdown-item" href="/SuccessDetails">Success Stories</a></li>
                 <li><a className="dropdown-item" href="/Support">Our Support</a></li>
               </ul>
             </li>
+
           </ul>
         </div>
       </div>
